@@ -1,3 +1,3 @@
 # ArcUI
 
-A description of this package.
+UI components for the American Red Cross (ARC) apps written in SwiftUI.
