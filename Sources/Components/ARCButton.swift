@@ -51,7 +51,6 @@ public struct ARCButton: View {
                 RoundedRectangle(cornerRadius: .arcButtonCorner)
                     .strokeBorder(style.borderColor, lineWidth: .arcButtonBorder)
             )
-
         }
     }
 }
