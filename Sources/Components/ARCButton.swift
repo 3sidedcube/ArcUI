@@ -20,6 +20,9 @@ public struct ARCButton: View {
 
         /// Stroked blue
         case secondary
+
+        /// Disabled state
+        case disabled
     }
 
     @Environment(\.isLoading) public var isLoading: Bool
@@ -29,27 +32,32 @@ public struct ARCButton: View {
     public var style: Style
     public var onTap: () -> Void
 
+    /// Mapped `Style` based on states
+    private var buttonStyle: Style {
+        isLoading || !isEnabled ? .disabled : style
+    }
+
     public var body: some View {
         Button(action: onTap) {
             ZStack {
                 Text(title)
                     .style(.arcButton)
-                    .foregroundColor(style.textColor)
+                    .foregroundColor(buttonStyle.textColor)
                     .opacity(isLoading ? 0 : 1)
 
                 ProgressView()
                     .progressViewStyle(CircularProgressViewStyle(
-                        tint: style.textColor
+                        tint: buttonStyle.textColor
                     ))
                     .opacity(isLoading ? 1 : 0)
             }
             .frame(maxWidth: .infinity)
             .padding(.vertical, .arcButtonPadding)
-            .background(style.backgroundColor)
+            .background(buttonStyle.backgroundColor)
             .cornerRadius(.arcButtonCorner)
             .overlay(
                 RoundedRectangle(cornerRadius: .arcButtonCorner)
-                    .strokeBorder(style.borderColor, lineWidth: .arcButtonBorder)
+                    .strokeBorder(buttonStyle.borderColor, lineWidth: .arcButtonBorder)
             )
         }
     }
@@ -63,6 +71,7 @@ private extension ARCButton.Style {
         switch self  {
         case .primary: return .arcRed
         case .secondary: return .clear
+        case .disabled: return .arcDarkGray
         }
     }
 
@@ -70,6 +79,7 @@ private extension ARCButton.Style {
         switch self  {
         case .primary: return .clear
         case .secondary: return .arcBlue
+        case .disabled: return .clear
         }
     }
 
@@ -77,6 +87,7 @@ private extension ARCButton.Style {
         switch self  {
         case .primary: return .arcWhite
         case .secondary: return .arcBlue
+        case .disabled: return .arcWhite
         }
     }
 }

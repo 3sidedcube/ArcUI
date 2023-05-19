@@ -11,7 +11,8 @@ import CubeFoundationSwiftUI
 
 public extension Color {
 
+    static let arcWhite = Color(white255: 255)
+    static let arcDarkGray = Color(red255: 109, green: 110, blue: 112)
     static let arcRed = Color(red255: 231, green: 19, blue: 1)
     static let arcBlue = Color(red255: 0, green: 124, blue: 175)
-    static let arcWhite = Color(white255: 255)
 }
