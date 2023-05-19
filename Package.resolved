@@ -5,8 +5,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/3sidedcube/cubefoundation-ios.git",
       "state" : {
-        "branch" : "develop",
-        "revision" : "7c6ceba17a28daf95fe856f36477be2f23da7225"
+        "branch" : "feature/system-font",
+        "revision" : "5d4a37498f4e8f88a85a2831bcbafd2f8404de98"
       }
     }
   ],
