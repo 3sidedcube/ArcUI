@@ -9,7 +9,7 @@
 import SwiftUI
 import CubeFoundationSwiftUI
 
-extension Color {
+public extension Color {
 
     static let arcRed = Color(red255: 231, green: 19, blue: 1)
     static let arcBlue = Color(red255: 0, green: 124, blue: 175)

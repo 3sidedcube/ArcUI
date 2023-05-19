@@ -13,7 +13,7 @@ private struct LoadingStateKey: EnvironmentKey {
     static let defaultValue = false
 }
 
-extension EnvironmentValues {
+public extension EnvironmentValues {
 
     var isLoading: Bool {
         get { self[LoadingStateKey.self] }
@@ -21,7 +21,7 @@ extension EnvironmentValues {
     }
 }
 
-extension View {
+public extension View {
 
     /// Adds a environment view that controls whether this view is loading.
     /// - Parameter isLoading: Is the component loading

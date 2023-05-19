@@ -10,10 +10,10 @@ import SwiftUI
 import CubeFoundationSwiftUI
 
 /// Button component
-struct ARCButton: View {
+public struct ARCButton: View {
 
     /// Fixed set of button styles
-    enum Style {
+    public enum Style {
 
         /// Filled red
         case primary
@@ -22,14 +22,14 @@ struct ARCButton: View {
         case secondary
     }
 
-    @Environment(\.isLoading) var isLoading: Bool
-    @Environment(\.isEnabled) var isEnabled: Bool
+    @Environment(\.isLoading) public var isLoading: Bool
+    @Environment(\.isEnabled) public var isEnabled: Bool
 
-    var title: String
-    var style: Style
-    var onTap: () -> Void
+    public var title: String
+    public var style: Style
+    public var onTap: () -> Void
 
-    var body: some View {
+    public var body: some View {
         Button(action: onTap) {
             ZStack {
                 Text(title)
@@ -58,7 +58,7 @@ struct ARCButton: View {
 
 // MARK: - ARCButton.Style
 
-extension ARCButton.Style {
+private extension ARCButton.Style {
 
     var backgroundColor: Color {
         switch self  {

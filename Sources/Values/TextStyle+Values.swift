@@ -9,7 +9,7 @@
 import SwiftUI
 import CubeFoundationSwiftUI
 
-extension TextStyle {
+public extension TextStyle {
 
     static let arcButton = TextStyle(
         font: .system,

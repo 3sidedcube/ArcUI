@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-extension CGFloat {
+public extension CGFloat {
 
     static let arcButtonCorner: CGFloat = 6
     static let arcButtonBorder: CGFloat = 1
