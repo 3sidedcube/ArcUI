@@ -6,7 +6,7 @@ import PackageDescription
 let package = Package(
     name: "ArcUI",
     platforms: [
-        .macOS(.v12),
+        // .macOS(.v12), Uses UIKit
         .iOS(.v15)
     ],
     products: [
@@ -15,9 +15,25 @@ let package = Package(
             targets: ["ArcUI"]
         )
     ],
+    dependencies: [
+        .package(
+            url: "https://github.com/3sidedcube/cubefoundation-ios.git",
+            branch: "develop"
+        )
+    ],
     targets: [
         .target(
             name: "ArcUI",
+            dependencies: [
+                .product(
+                    name: "CubeFoundation",
+                    package: "cubefoundation-ios"
+                ),
+                .product(
+                    name: "CubeFoundationSwiftUI",
+                    package: "cubefoundation-ios"
+                )
+            ],
             path: "Sources"
         ),
         .testTarget(
