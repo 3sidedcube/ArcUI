@@ -4,7 +4,13 @@ UI components for the American Red Cross (ARC) apps written in SwiftUI.
 
 ## Installation
 
-Add https://github.com/3sidedcube/ArcUI.git as a package dependency or, in your `Package.swift` add:
+Add the following as a package dependency in Xcode
+
+```
+ https://github.com/3sidedcube/ArcUI.git 
+```
+ 
+or, in your `Package.swift`, add:
 
 ```swift
 ...
