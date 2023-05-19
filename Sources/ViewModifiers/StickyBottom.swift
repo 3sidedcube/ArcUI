@@ -21,7 +21,7 @@ public struct StickyBottom<Bottom: View>: ViewModifier {
                     .background(
                         Color.arcWhite
                             .ignoresSafeArea()
-                            //.shadow(.button) TODO
+                            .shadow(.arcContainer)
                     )
                     .ignoresSafeArea(.keyboard) // Requires container...
             }
