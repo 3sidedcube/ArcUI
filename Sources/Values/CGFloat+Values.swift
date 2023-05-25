@@ -17,7 +17,8 @@ public extension CGFloat {
     static let arcVerticalPadding: CGFloat = 16
     static let arcHorizontalPadding: CGFloat = 20
 
-    static let arcListItemVerticalPadding: CGFloat = 32
+    static let arcListItemHeight: CGFloat = 84
+    static let arcListItemBorder: CGFloat = 2
     static let arcListItemLeadingPadding: CGFloat = 25
     static let arcListItemTrailingPadding: CGFloat = 16
 }
@@ -34,9 +35,9 @@ extension EdgeInsets {
     )
 
     static let arcListItemContainer = EdgeInsets(
-        top: .arcListItemVerticalPadding,
+        top: 0,
         leading: .arcListItemLeadingPadding,
-        bottom: .arcListItemVerticalPadding,
+        bottom: 0,
         trailing: .arcListItemTrailingPadding
     )
 }

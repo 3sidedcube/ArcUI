@@ -10,29 +10,46 @@ import SwiftUI
 import CubeFoundationSwiftUI
 import UIKit
 
+/// List Item Component
 public struct ARCListItem: View {
 
-    public init() {}
+    public var title: String
+    public var subTitle: String?
+    public var onTap: () -> Void
+
+    public init(title: String, subTitle: String?, onTap: @escaping () -> Void) {
+        self.title = title
+        self.onTap = onTap
+        self.subTitle = subTitle
+    }
 
     public var body: some View {
-        ZStack {
-            Color.black.ignoresSafeArea()
-            VStack {
-                HStack() {
-                    Text("Hello")
-                        .font(.body)
+        Button(action: onTap) {
+            HStack() {
+                VStack(alignment: .leading) {
+                    Text(title)
+                        .style(.arcListItemTitle)
                         .foregroundColor(.black)
-                    Spacer()
-                    Image(uiImage: UIImage(named: "ChevronRightRounded", in: .module, with: nil)!)
-
+                    if let subTitle = subTitle {
+                        Text(subTitle)
+                            .style(.arcListItemSubtitle)
+                            .foregroundColor(.arcDarkGray)
+                    }
                 }
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .padding(EdgeInsets.arcListItemContainer)
-                .background(Color.arcWhite)
+                Spacer()
+                Image(uiImage: UIImage(named: "ChevronRightRounded", in: .module, with: nil)!)
+
             }
-            .padding(.horizontal)
         }
-        .accentColor(.black)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .frame(height: .arcListItemHeight)
+        .padding(EdgeInsets.arcListItemContainer)
+        .background(Color.arcWhite)
+        .overlay(
+            Rectangle()
+                .frame(width: nil, height: .arcListItemBorder, alignment: .bottom)
+                .foregroundColor(Color.arcLightGray), alignment: .bottom
+        )
     }
 }
 
@@ -40,7 +57,8 @@ struct SwiftUIView_Previews: PreviewProvider {
 
     static var previews: some View {
         VStack {
-            ARCListItem()
+            ARCListItem(title: "Map Overlay", subTitle: nil, onTap: {})
+            ARCListItem(title: "Map Overlay", subTitle: "Showing: Hurricane", onTap: {})
         }
     }
 }

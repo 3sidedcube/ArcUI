@@ -19,4 +19,22 @@ public extension TextStyle {
         letter: 0.6,
         underline: false
     )
+
+    static let arcListItemTitle = TextStyle(
+        font: .system,
+        weight: 600,
+        size: 15,
+        lineHeight: 18,
+        letter: 0.3,
+        underline: false
+    )
+
+    static let arcListItemSubtitle = TextStyle(
+        font: .system,
+        weight: 400,
+        size: 13,
+        lineHeight: 16,
+        letter: 0.3,
+        underline: false
+    )
 }
