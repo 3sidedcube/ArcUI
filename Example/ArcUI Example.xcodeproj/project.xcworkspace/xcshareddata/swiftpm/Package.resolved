@@ -1,0 +1,23 @@
+{
+  "pins" : [
+    {
+      "identity" : "arcui",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/3sidedcube/ArcUI.git",
+      "state" : {
+        "branch" : "feature/text",
+        "revision" : "fbfef1fb2962fa0f9a8fa515e64b450d0cba5c92"
+      }
+    },
+    {
+      "identity" : "cubefoundation-ios",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/3sidedcube/cubefoundation-ios.git",
+      "state" : {
+        "branch" : "feature/system-font",
+        "revision" : "d8a8371ee5d57d73a93e92a76685c0ccf92b662e"
+      }
+    }
+  ],
+  "version" : 2
+}
