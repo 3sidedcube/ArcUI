@@ -37,6 +37,12 @@ public struct ARCButton: View {
         isLoading || !isEnabled ? .disabled : style
     }
 
+    public init(title: String, style: Style, onTap: @escaping () -> Void) {
+        self.title = title
+        self.style = style
+        self.onTap = onTap
+    }
+
     public var body: some View {
         Button(action: onTap) {
             ZStack {
