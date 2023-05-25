@@ -8,8 +8,12 @@
 
 import SwiftUI
 import CubeFoundationSwiftUI
+import UIKit
 
 public struct ARCListItem: View {
+
+    public init() {}
+
     public var body: some View {
         ZStack {
             Color.black.ignoresSafeArea()
@@ -17,7 +21,10 @@ public struct ARCListItem: View {
                 HStack() {
                     Text("Hello")
                         .font(.body)
-                        .foregroundColor(.white)
+                        .foregroundColor(.black)
+                    Spacer()
+                    Image(uiImage: UIImage(named: "ChevronRightRounded", in: .module, with: nil)!)
+
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(EdgeInsets.arcListItemContainer)
