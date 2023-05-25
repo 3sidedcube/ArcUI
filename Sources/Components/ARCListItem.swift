@@ -57,8 +57,14 @@ struct SwiftUIView_Previews: PreviewProvider {
 
     static var previews: some View {
         VStack {
-            ARCListItem(title: "Map Overlay", subTitle: nil, onTap: {})
-            ARCListItem(title: "Map Overlay", subTitle: "Showing: Hurricane", onTap: {})
+            Spacer()
+            VStack() {
+                ARCListItem(title: "Map Overlay", subTitle: nil, onTap: {})
+                ARCListItem(title: "Map Overlay", subTitle: "Showing: Hurricane", onTap: {})
+            }
+            .padding(.horizontal, .arcHorizontalPadding)
+            Spacer()
         }
+        .background(Color.arcAppBG)
     }
 }
