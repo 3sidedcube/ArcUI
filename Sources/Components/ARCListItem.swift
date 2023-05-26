@@ -33,7 +33,7 @@ public struct ARCListItem: View {
                         Text(subtitle)
                             .style(.arcListItemSubtitle)
                             .foregroundColor(.arcDarkGray)
-                            .padding(.top, 4)
+                            .padding(.top, .arcListItemSubtitlePadding)
                     }
                 }
                 Spacer()
@@ -42,8 +42,7 @@ public struct ARCListItem: View {
             }
         }
         .frame(maxWidth: .infinity, alignment: .leading)
-        .frame(height: .arcListItemHeight)
-        .padding(EdgeInsets.arcListItemContainer)
+        .padding(subtitle == nil ? EdgeInsets.arcListItemContainer : EdgeInsets.arcListItemContainerSubtitle)
         .background(Color.arcWhite)
         .overlay(
             Rectangle()
