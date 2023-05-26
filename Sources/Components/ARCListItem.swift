@@ -47,13 +47,14 @@ public struct ARCListItem: View {
         .background(Color.arcWhite)
         .overlay(
             Rectangle()
-                .frame(width: nil, height: .arcListItemBorder, alignment: .bottom)
-                .foregroundColor(Color.arcLightGray), alignment: .bottom
+                .frame(height: .arcListItemBorder)
+                .foregroundColor(Color.arcBlack)
+            , alignment: .bottom
         )
     }
 }
 
-struct SwiftUIView_Previews: PreviewProvider {
+struct ARCListItem_Previews: PreviewProvider {
 
     static var previews: some View {
         VStack {
