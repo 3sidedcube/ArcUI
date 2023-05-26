@@ -8,7 +8,6 @@
 
 import SwiftUI
 import CubeFoundationSwiftUI
-import UIKit
 
 /// List Item Component
 public struct ARCListItem: View {
