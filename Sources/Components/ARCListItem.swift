@@ -10,17 +10,29 @@ import SwiftUI
 import CubeFoundationSwiftUI
 
 /// List Item Component
-public struct ARCListItem: View {
+public struct ARCListItem<Leading: View, Trailing: View>: View {
 
     public var title: String
     public var subtitle: String?
     public var badgetitle: String?
     public var onTap: () -> Void
 
-    public init(title: String, subtitle: String? = nil, badgetitle: String? = nil, onTap: @escaping () -> Void) {
+    @ViewBuilder public var leading: () -> Leading
+    @ViewBuilder public var trailing: () -> Trailing
+
+    public init(
+        title: String,
+        subtitle: String? = nil,
+        badgetitle: String? = nil,
+        @ViewBuilder leading: @escaping () -> Leading,
+        @ViewBuilder trailing: @escaping () -> Trailing,
+        onTap: @escaping () -> Void
+    ) {
         self.title = title
         self.subtitle = subtitle
         self.badgetitle = badgetitle
+        self.leading = leading
+        self.trailing = trailing
         self.onTap = onTap
     }
 
@@ -28,10 +40,7 @@ public struct ARCListItem: View {
         Button(action: onTap) {
             HStack {
                 HStack(alignment: .center, spacing: 0) {
-                    // Image
-                    Image.arcListItemLeading()
-                        .padding(.trailing, 12)
-                    // Text
+                    leading()
                     VStack(alignment: .leading, spacing: .arcListItemSpacing) {
                         Text(title)
                             .style(.arcListItemTitle)
@@ -43,17 +52,14 @@ public struct ARCListItem: View {
                         }
                     }
                     .multilineTextAlignment(.leading)
-                    // Badge
+
                     if let badgetitle = badgetitle {
                         ARCBadge(title: badgetitle)
                             .padding(.leading, .arcListItemBadgeLeadingPadding)
                     }
                 }
                 Spacer()
-                // Chevron
-                Image.arcRoundedRightChevron()
-                    .padding(.leading, .arcListItemChevronPadding)
-
+                trailing()
             }
         }
         .frame(maxWidth: .infinity, alignment: .leading)
@@ -74,10 +80,64 @@ struct ARCListItem_Previews: PreviewProvider {
         VStack {
             Spacer()
             VStack {
-                ARCListItem(title: "Map Overlay", onTap: {})
-                ARCListItem(title: "Map Overlay", subtitle: "Showing: Hurricane", onTap: {})
-                ARCListItem(title: "This is a very long title indeed that won't end very soon even if it breaks the UI", subtitle: "This is a very long description indeed that won't end very soon even if it breaks the UI", onTap: {})
-                ARCListItem(title: "Map Overlay", badgetitle: "New", onTap: {})
+                ARCListItem(
+                    title: "Map Overlay",
+                    leading: { EmptyView() },
+                    trailing: {
+                        Image.arcRoundedRightChevron()
+                            .padding(.leading, .arcListItemChevronPadding)
+                    },
+                    onTap: {}
+                )
+                ARCListItem(
+                    title: "Map Overlay",
+                    subtitle: "Showing: Hurricane",
+                    leading: { EmptyView() },
+                    trailing: {
+                        Image.arcRoundedRightChevron()
+                            .padding(.leading, .arcListItemChevronPadding)
+                    },
+                    onTap: {}
+                )
+                ARCListItem(
+                    title: "This is a very long title indeed that won't end very soon even if it breaks the UI",
+                    subtitle: "This is a very long description indeed that won't end very soon even if it breaks the UI",
+                    leading: { EmptyView() },
+                    trailing: {
+                        Image.arcRoundedRightChevron()
+                            .padding(.leading, .arcListItemChevronPadding)
+                    },
+                    onTap: {}
+                )
+
+                ARCListItem(
+                    title: "Map Overlay",
+                    badgetitle: "New",
+                    leading: { EmptyView() },
+                    trailing: {
+                        Image.arcRoundedRightChevron()
+                            .padding(.leading, .arcListItemChevronPadding)
+                    },
+                    onTap: {}
+                )
+
+                ARCListItem(
+                    title: "Map Overlay",
+                    leading: {
+                        Image.arcListItemLeading()
+                            .padding(.trailing, 12)
+                    },
+                    trailing: {
+                        Image.arcRoundedRightChevron()
+                            .padding(.leading, .arcListItemChevronPadding)
+                    },
+                    onTap: {}
+                )
+
+
+
+
+
             }
             .padding(.horizontal, .arcHorizontalPadding)
             Spacer()

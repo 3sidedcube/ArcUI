@@ -52,33 +52,33 @@ struct ListItemX<Leading: View, Trailing: View>: View {
 
 // MARK: - PreviewProvider
 
-//struct ListItemX_Previews: PreviewProvider {
-//
-//    static var previews: some View {
-//        ScrollView {
-//            VStack {
-//                ListItemX(
-//                    title: "List Item",
-//                    subtitle: "Some subtitle text",
-//                    leading: {
-//                        Image(systemName: "star.fill")
-//                            .resizable()
-//                            .aspectRatio(contentMode: .fit)
-//                            .foregroundColor(.yellow)
-//                            .frame(size: 30)
-//                    },
-//                    trailing: {
-//                        Image(systemName: "chevron.right.square.fill")
-//                            .resizable()
-//                            .aspectRatio(contentMode: .fit)
-//                            .foregroundColor(.red)
-//                            .frame(size: 22)
-//                    })
-//
-//                Spacer()
-//            }
-//        }
-//        .frame(maxWidth: .infinity, maxHeight: .infinity)
-//        .background(Color(white: 220 / 255))
-//    }
-//}
+struct ListItemX_Previews: PreviewProvider {
+
+    static var previews: some View {
+        ScrollView {
+            VStack {
+                ListItemX(
+                    title: "List Item",
+                    subtitle: "Some subtitle text",
+                    leading: {
+                        Image(systemName: "star.fill")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .foregroundColor(.yellow)
+                            .frame(size: 30)
+                    },
+                    trailing: {
+                        Image(systemName: "chevron.right.square.fill")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .foregroundColor(.red)
+                            .frame(size: 22)
+                    })
+
+                Spacer()
+            }
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(Color(white: 220 / 255))
+    }
+}
