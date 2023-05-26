@@ -17,7 +17,6 @@ public extension CGFloat {
     static let arcVerticalPadding: CGFloat = 16
     static let arcHorizontalPadding: CGFloat = 20
 
-    static let arcListItemHeight: CGFloat = 84
     static let arcListItemBorder: CGFloat = 2
     static let arcListItemSpacing: CGFloat = 4
     static let arcListItemChevronPadding: CGFloat = 24
