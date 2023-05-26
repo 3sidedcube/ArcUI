@@ -25,7 +25,7 @@ public struct ARCListItem: View {
     public var body: some View {
         Button(action: onTap) {
             HStack {
-                VStack(alignment: .leading) {
+                VStack(alignment: .leading, spacing: 0) {
                     Text(title)
                         .style(.arcListItemTitle)
                         .foregroundColor(.arcBlack)
@@ -33,6 +33,7 @@ public struct ARCListItem: View {
                         Text(subtitle)
                             .style(.arcListItemSubtitle)
                             .foregroundColor(.arcDarkGray)
+                            .padding(.top, 6)
                     }
                 }
                 Spacer()
