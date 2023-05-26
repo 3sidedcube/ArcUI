@@ -37,7 +37,7 @@ public struct ARCListItem: View {
                     }
                 }
                 Spacer()
-                Image(uiImage: UIImage(named: "ChevronRightRounded", in: .module, with: nil)!)
+                Image(uiImage: UIImage(named: "Arc-Rounded-Right-Chevron", in: .module, with: nil)!)
 
             }
         }
