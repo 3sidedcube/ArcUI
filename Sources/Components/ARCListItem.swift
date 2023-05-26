@@ -33,11 +33,11 @@ public struct ARCListItem: View {
                         Text(subtitle)
                             .style(.arcListItemSubtitle)
                             .foregroundColor(.arcDarkGray)
-                            .padding(.top, 6)
+                            .padding(.top, 4)
                     }
                 }
                 Spacer()
-                Image(uiImage: UIImage(named: "Arc-Rounded-Right-Chevron", in: .module, with: nil)!)
+                Image.arcRoundedRightChevron()
 
             }
         }
