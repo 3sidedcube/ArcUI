@@ -84,7 +84,7 @@ struct ARCListItem_Previews: PreviewProvider {
                     title: "Map Overlay",
                     leading: { EmptyView() },
                     trailing: {
-                        Image.arcRoundedRightChevron()
+                        Image.arcRoundedRightChevron
                             .padding(.leading, .arcListItemChevronPadding)
                     },
                     onTap: {}
@@ -94,7 +94,7 @@ struct ARCListItem_Previews: PreviewProvider {
                     subtitle: "Showing: Hurricane",
                     leading: { EmptyView() },
                     trailing: {
-                        Image.arcRoundedRightChevron()
+                        Image.arcRoundedRightChevron
                             .padding(.leading, .arcListItemChevronPadding)
                     },
                     onTap: {}
@@ -104,7 +104,7 @@ struct ARCListItem_Previews: PreviewProvider {
                     subtitle: "This is a very long description indeed that won't end very soon even if it breaks the UI",
                     leading: { EmptyView() },
                     trailing: {
-                        Image.arcRoundedRightChevron()
+                        Image.arcRoundedRightChevron
                             .padding(.leading, .arcListItemChevronPadding)
                     },
                     onTap: {}
@@ -115,7 +115,7 @@ struct ARCListItem_Previews: PreviewProvider {
                     badgetitle: "New",
                     leading: { EmptyView() },
                     trailing: {
-                        Image.arcRoundedRightChevron()
+                        Image.arcRoundedRightChevron
                             .padding(.leading, .arcListItemChevronPadding)
                     },
                     onTap: {}
@@ -124,11 +124,11 @@ struct ARCListItem_Previews: PreviewProvider {
                 ARCListItem(
                     title: "Map Overlay",
                     leading: {
-                        Image.arcListItemLeading()
+                        Image.arcListItemLeading
                             .padding(.trailing, 12)
                     },
                     trailing: {
-                        Image.arcRoundedRightChevron()
+                        Image.arcRoundedRightChevron
                             .padding(.leading, .arcListItemChevronPadding)
                     },
                     onTap: {}
@@ -137,6 +137,6 @@ struct ARCListItem_Previews: PreviewProvider {
             .padding(.horizontal, .arcHorizontalPadding)
             Spacer()
         }
-        .background(Color.arcAppBG)
+        .background(Color.arcBackground)
     }
 }

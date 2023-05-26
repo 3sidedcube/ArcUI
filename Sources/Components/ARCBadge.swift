@@ -37,7 +37,7 @@ struct SARCBadge_Previews: PreviewProvider {
         VStack {
             ARCBadge(title: "New")
             ARCBadge(title: "New", color: Color.arcBlue)
-            ARCBadge(title: "New", color: Color.arcAppBG, textcolor: Color.arcBlack)
+            ARCBadge(title: "New", color: Color.arcBackground, textcolor: Color.arcBlack)
         }
     }
 }

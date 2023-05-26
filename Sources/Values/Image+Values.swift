@@ -9,11 +9,7 @@
 import SwiftUI
 
 public extension Image {
-    static func arcRoundedRightChevron() -> Image {
-        return Image(uiImage: UIImage(named: "Arc-Rounded-Right-Chevron", in: .module, with: nil)!)
-    }
+    static let arcRoundedRightChevron = Image(uiImage: UIImage(named: "Arc-Rounded-Right-Chevron", in: .module, with: nil)!)
 
-    static func arcListItemLeading() -> Image {
-        return Image(uiImage: UIImage(named: "Arc-List-Item-Leading", in: .module, with: nil)!)
-    }
+    static let arcListItemLeading = Image(uiImage: UIImage(named: "Arc-List-Item-Leading", in: .module, with: nil)!)
 }
