@@ -14,28 +14,43 @@ public struct ARCListItem: View {
 
     public var title: String
     public var subtitle: String?
+    public var badgetitle: String?
     public var onTap: () -> Void
 
-    public init(title: String, subtitle: String?, onTap: @escaping () -> Void) {
+    public init(title: String, subtitle: String? = nil, badgetitle: String? = nil, onTap: @escaping () -> Void) {
         self.title = title
-        self.onTap = onTap
         self.subtitle = subtitle
+        self.badgetitle = badgetitle
+        self.onTap = onTap
     }
 
     public var body: some View {
         Button(action: onTap) {
             HStack {
-                VStack(alignment: .leading, spacing: 0) {
-                    Text(title)
-                        .style(.arcListItemTitle)
-                        .foregroundColor(.arcBlack)
-                        .multilineTextAlignment(.leading)
-                    if let subtitle = subtitle {
-                        Text(subtitle)
-                            .style(.arcListItemSubtitle)
-                            .foregroundColor(.arcDarkGray)
-                            .padding(.top, .arcListItemSubtitlePadding)
-                            .multilineTextAlignment(.leading)
+                HStack(alignment: .center, spacing: 0) {
+                    VStack(alignment: .leading, spacing: 0) {
+                        Text(title)
+                            .style(.arcListItemTitle)
+                            .foregroundColor(.arcBlack)
+                        if let subtitle = subtitle {
+                            Text(subtitle)
+                                .style(.arcListItemSubtitle)
+                                .foregroundColor(.arcDarkGray)
+                                .padding(.top, .arcListItemSubtitlePadding)
+                        }
+                    }
+                    .multilineTextAlignment(.leading)
+                    if let badgetitle = badgetitle {
+                        VStack {
+                            Text(badgetitle)
+                                .style(.arcListItemBadge)
+                                .foregroundColor(.arcWhite)
+                                .padding(.vertical, 4)
+                                .padding(.horizontal, 8)
+                        }
+                        .background(Color.arcRed)
+                        .cornerRadius(6)
+                        .padding(.leading, 8)
                     }
                 }
                 Spacer()
@@ -62,9 +77,10 @@ struct ARCListItem_Previews: PreviewProvider {
         VStack {
             Spacer()
             VStack {
-                ARCListItem(title: "Map Overlay", subtitle: nil, onTap: {})
+                ARCListItem(title: "Map Overlay", onTap: {})
                 ARCListItem(title: "Map Overlay", subtitle: "Showing: Hurricane", onTap: {})
                 ARCListItem(title: "This is a very long title indeed that won't end very soon even if it breaks the UI", subtitle: "This is a very long description indeed that won't end very soon even if it breaks the UI", onTap: {})
+                ARCListItem(title: "Map Overlay", badgetitle: "New", onTap: {})
             }
             .padding(.horizontal, .arcHorizontalPadding)
             Spacer()

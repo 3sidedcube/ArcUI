@@ -37,4 +37,13 @@ public extension TextStyle {
         letter: 0.3,
         underline: false
     )
+
+    static let arcListItemBadge = TextStyle (
+        font: .system,
+        weight: 700,
+        size: 12,
+        lineHeight: 14,
+        letter: 0.12,
+        underline: false
+    )
 }
