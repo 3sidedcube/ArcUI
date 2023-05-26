@@ -13,13 +13,13 @@ import CubeFoundationSwiftUI
 public struct ARCListItem: View {
 
     public var title: String
-    public var subTitle: String?
+    public var subtitle: String?
     public var onTap: () -> Void
 
-    public init(title: String, subTitle: String?, onTap: @escaping () -> Void) {
+    public init(title: String, subtitle: String?, onTap: @escaping () -> Void) {
         self.title = title
         self.onTap = onTap
-        self.subTitle = subTitle
+        self.subtitle = subtitle
     }
 
     public var body: some View {
@@ -29,8 +29,8 @@ public struct ARCListItem: View {
                     Text(title)
                         .style(.arcListItemTitle)
                         .foregroundColor(.black)
-                    if let subTitle = subTitle {
-                        Text(subTitle)
+                    if let subtitle = subtitle {
+                        Text(subtitle)
                             .style(.arcListItemSubtitle)
                             .foregroundColor(.arcDarkGray)
                     }
@@ -58,8 +58,8 @@ struct SwiftUIView_Previews: PreviewProvider {
         VStack {
             Spacer()
             VStack() {
-                ARCListItem(title: "Map Overlay", subTitle: nil, onTap: {})
-                ARCListItem(title: "Map Overlay", subTitle: "Showing: Hurricane", onTap: {})
+                ARCListItem(title: "Map Overlay", subtitle: nil, onTap: {})
+                ARCListItem(title: "Map Overlay", subtitle: "Showing: Hurricane", onTap: {})
             }
             .padding(.horizontal, .arcHorizontalPadding)
             Spacer()
