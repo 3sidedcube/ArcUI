@@ -48,7 +48,7 @@ public struct ARCListItem: View {
         .overlay(
             Rectangle()
                 .frame(height: .arcListItemBorder)
-                .foregroundColor(Color.arcBlack)
+                .foregroundColor(Color.arcLightGray)
             , alignment: .bottom
         )
     }
