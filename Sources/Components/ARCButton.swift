@@ -74,7 +74,7 @@ public struct ARCButton: View {
 private extension ARCButton.Style {
 
     var backgroundColor: Color {
-        switch self  {
+        switch self {
         case .primary: return .arcRed
         case .secondary: return .clear
         case .disabled: return .arcDarkGray
@@ -82,7 +82,7 @@ private extension ARCButton.Style {
     }
 
     var borderColor: Color {
-        switch self  {
+        switch self {
         case .primary: return .clear
         case .secondary: return .arcBlue
         case .disabled: return .clear
@@ -90,7 +90,7 @@ private extension ARCButton.Style {
     }
 
     var textColor: Color {
-        switch self  {
+        switch self {
         case .primary: return .arcWhite
         case .secondary: return .arcBlue
         case .disabled: return .arcWhite

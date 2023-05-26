@@ -42,7 +42,6 @@ public struct ARCListItem: View {
                 Image.arcRoundedRightChevron()
                     .padding(.leading, .arcListItemChevronPadding)
 
-
             }
         }
         .frame(maxWidth: .infinity, alignment: .leading)
