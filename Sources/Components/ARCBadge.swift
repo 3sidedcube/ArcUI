@@ -32,7 +32,6 @@ public struct ARCBadge: View {
     }
 }
 
-
 struct SARCBadge_Previews: PreviewProvider {
     static var previews: some View {
         VStack {

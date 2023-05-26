@@ -133,11 +133,6 @@ struct ARCListItem_Previews: PreviewProvider {
                     },
                     onTap: {}
                 )
-
-
-
-
-
             }
             .padding(.horizontal, .arcHorizontalPadding)
             Spacer()
