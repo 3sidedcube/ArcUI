@@ -12,4 +12,8 @@ public extension Image {
     static func arcRoundedRightChevron() -> Image {
         return Image(uiImage: UIImage(named: "Arc-Rounded-Right-Chevron", in: .module, with: nil)!)
     }
+
+    static func arcListItemLeading() -> Image {
+        return Image(uiImage: UIImage(named: "Arc-List-Item-Leading", in: .module, with: nil)!)
+    }
 }

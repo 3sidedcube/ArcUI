@@ -28,6 +28,9 @@ public struct ARCListItem: View {
         Button(action: onTap) {
             HStack {
                 HStack(alignment: .center, spacing: 0) {
+                    // Image
+                    Image.arcListItemLeading()
+                        .padding(.trailing, 12)
                     // Text
                     VStack(alignment: .leading, spacing: .arcListItemSpacing) {
                         Text(title)
