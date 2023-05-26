@@ -28,7 +28,8 @@ public struct ARCListItem: View {
         Button(action: onTap) {
             HStack {
                 HStack(alignment: .center, spacing: 0) {
-                    VStack(alignment: .leading, spacing: 0) {
+                    // Text
+                    VStack(alignment: .leading, spacing: .arcListItemSpacing) {
                         Text(title)
                             .style(.arcListItemTitle)
                             .foregroundColor(.arcBlack)
@@ -36,24 +37,17 @@ public struct ARCListItem: View {
                             Text(subtitle)
                                 .style(.arcListItemSubtitle)
                                 .foregroundColor(.arcDarkGray)
-                                .padding(.top, .arcListItemSubtitlePadding)
                         }
                     }
                     .multilineTextAlignment(.leading)
+                    // Badge
                     if let badgetitle = badgetitle {
-                        VStack {
-                            Text(badgetitle)
-                                .style(.arcListItemBadge)
-                                .foregroundColor(.arcWhite)
-                                .padding(.vertical, 4)
-                                .padding(.horizontal, 8)
-                        }
-                        .background(Color.arcRed)
-                        .cornerRadius(6)
-                        .padding(.leading, 8)
+                        ARCBadge(title: badgetitle)
+                            .padding(.leading, .arcListItemBadgeLeadingPadding)
                     }
                 }
                 Spacer()
+                // Chevron
                 Image.arcRoundedRightChevron()
                     .padding(.leading, .arcListItemChevronPadding)
 
