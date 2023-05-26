@@ -1,17 +1,15 @@
 {
   "images" : [
     {
-      "filename" : "ChevronRightRounded.png",
+      "filename" : "Arc-Rounded-Right-Chevron.svg",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "ChevronRightRounded@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "ChevronRightRounded@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

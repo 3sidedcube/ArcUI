@@ -65,7 +65,7 @@ struct ARCListItem_Previews: PreviewProvider {
             VStack {
                 ARCListItem(title: "Map Overlay", subtitle: nil, onTap: {})
                 ARCListItem(title: "Map Overlay", subtitle: "Showing: Hurricane", onTap: {})
-                ARCListItem(title: "This is a very long long title indeed that won't end very soon soon even if it breaks the UI", subtitle: "This is a very long description indeed that won't end very soon even if it breaks the UI", onTap: {})
+                ARCListItem(title: "This is a very long title indeed that won't end very soon even if it breaks the UI", subtitle: "This is a very long description indeed that won't end very soon even if it breaks the UI", onTap: {})
             }
             .padding(.horizontal, .arcHorizontalPadding)
             Spacer()
