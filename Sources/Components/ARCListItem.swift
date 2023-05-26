@@ -24,11 +24,11 @@ public struct ARCListItem: View {
 
     public var body: some View {
         Button(action: onTap) {
-            HStack() {
+            HStack {
                 VStack(alignment: .leading) {
                     Text(title)
                         .style(.arcListItemTitle)
-                        .foregroundColor(.black)
+                        .foregroundColor(.arcBlack)
                     if let subtitle = subtitle {
                         Text(subtitle)
                             .style(.arcListItemSubtitle)
@@ -57,7 +57,7 @@ struct SwiftUIView_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
             Spacer()
-            VStack() {
+            VStack {
                 ARCListItem(title: "Map Overlay", subtitle: nil, onTap: {})
                 ARCListItem(title: "Map Overlay", subtitle: "Showing: Hurricane", onTap: {})
             }
