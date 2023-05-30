@@ -12,19 +12,19 @@ public struct ARCBadge: View {
 
     public var title: String
     public var color: Color?
-    public var textcolor: Color?
+    public var textColor: Color?
 
-    public init(title: String, color: Color? = Color.arcRed, textcolor: Color? = Color.arcWhite) {
+    public init(title: String, color: Color? = Color.arcRed, textColor: Color? = Color.arcWhite) {
         self.title = title
         self.color = color
-        self.textcolor = textcolor
+        self.textColor = textColor
     }
 
     public var body: some View {
         VStack {
             Text(title)
                 .style(.arcBadge)
-                .foregroundColor(textcolor)
+                .foregroundColor(textColor)
                 .padding(.arcBadge)
         }
         .background(color)
@@ -37,7 +37,7 @@ struct SARCBadge_Previews: PreviewProvider {
         VStack {
             ARCBadge(title: "New")
             ARCBadge(title: "New", color: Color.arcBlue)
-            ARCBadge(title: "New", color: Color.arcBackground, textcolor: Color.arcBlack)
+            ARCBadge(title: "New", color: Color.arcBackground, textColor: Color.arcBlack)
         }
     }
 }
