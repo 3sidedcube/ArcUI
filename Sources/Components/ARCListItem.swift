@@ -42,11 +42,11 @@ public struct ARCListItem<Leading: View, Trailing: View>: View {
                 leading()
                 VStack(alignment: .leading, spacing: .ArcListItem.spacing) {
                     Text(title)
-                        .style(.arcListItemTitle)
+                        .style(.arcH4)
                         .foregroundColor(.arcBlack)
                     if let subtitle {
                         Text(subtitle)
-                            .style(.arcListItemSubtitle)
+                            .style(.arcBody2)
                             .foregroundColor(.arcDarkGray)
                     }
                 }
@@ -131,6 +131,7 @@ struct ARCListItem_Previews: PreviewProvider {
                 )
             }
             .padding(.horizontal, .arcHorizontalPadding)
+            .frame(maxHeight: .infinity)
         }
         .background(Color.arcBackground)
     }
