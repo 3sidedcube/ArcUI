@@ -8,22 +8,21 @@
 
 import SwiftUI
 
-public enum ARCSelectableType {
-    case radio
-    case checkbox
-}
-
 public struct ARCSelectable: View {
+    public enum Control {
+        case radio
+        case checkbox
+    }
 
     public var title: String
-    public var type: ARCSelectableType
+    public var type: Control
     public var isSelected: Bool
     public var isFullWidth: Bool
     public var onTap: () -> Void
 
     init (
         title: String,
-        type: ARCSelectableType = .radio,
+        type: Control = .radio,
         isSelected: Bool,
         isFullWidth: Bool = false,
         onTap: @escaping () -> Void
@@ -35,6 +34,13 @@ public struct ARCSelectable: View {
         self.onTap = onTap
     }
 
+    var image: Image {
+        guard isSelected else {
+            return Image.arcEmptySelectable
+        }
+        return type == .radio ? Image.arcFilledRadio : Image.arcFilledCheckbox
+    }
+
     public var body: some View {
         Button(action: onTap) {
             HStack(spacing: .ArcSelectable.spacing) {
@@ -42,11 +48,7 @@ public struct ARCSelectable: View {
                     .style(.arcListItemTitle)
                     .foregroundColor(Color.arcBlack)
                     .frame(maxWidth: isFullWidth ? .infinity : nil, alignment: .leading)
-                if isSelected {
-                    type == .radio ? Image.arcFilledRadio : Image.arcFilledCheckbox
-                } else {
-                    Image.arcEmptySelectable
-                }
+                image
             }
             .padding(isFullWidth ? .ArcSelectable.largePadding : .ArcSelectable.padding)
             .frame(maxWidth: isFullWidth ? .infinity : nil, alignment: .leading)
