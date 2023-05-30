@@ -18,6 +18,7 @@ public extension CGFloat {
     static let arcHorizontalPadding: CGFloat = 20
 
     static let arcSelectablePadding: CGFloat = 12
+    static let arcSelectableLargePadding: CGFloat = 20
     static let arcSelectableBorder: CGFloat = 2
     static let arcSelectableCorner: CGFloat = 6
     static let arcSelectableTitlePadding: CGFloat = 16

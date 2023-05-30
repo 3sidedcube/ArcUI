@@ -27,6 +27,7 @@ public extension TextStyle {
         lineHeight: 20,
         letter: 0.2,
         underline: false
+    )
 
     static let arcListItemTitle = TextStyle(
         font: .system,

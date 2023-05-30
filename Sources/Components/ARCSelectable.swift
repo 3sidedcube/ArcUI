@@ -8,15 +8,16 @@
 
 import SwiftUI
 
-public enum SelectableType: String {
-    case radio = "Radio"
-    case checkbox = "Checkbox"
+public enum SelectableSize: String {
+    case small = "Small"
+    case fullWidth = "FullWidth"
 }
 
 public struct ARCSelectable<Trailing: View>: View {
 
     public var title: String
     public var isSelected: Bool
+    public var size: SelectableSize
     public var onTap: () -> Void
 
     @ViewBuilder public var trailing: () -> Trailing
@@ -24,11 +25,13 @@ public struct ARCSelectable<Trailing: View>: View {
     init (
         title: String,
         isSelected: Bool,
+        size: SelectableSize = .small,
         onTap: @escaping () -> Void,
         @ViewBuilder trailing: @escaping () -> Trailing
     ) {
         self.title = title
         self.isSelected = isSelected
+        self.size = size
         self.onTap = onTap
         self.trailing = trailing
     }
@@ -37,16 +40,17 @@ public struct ARCSelectable<Trailing: View>: View {
 
     public var body: some View {
         Button(action: onTap) {
-            ZStack {
+            HStack {
                 Text(title)
                     .style(.arcSelectable)
                     .foregroundColor(Color.arcBlack)
                     .padding(.trailing, .arcSelectableTitlePadding)
-                Spacer()
+                    .frame(maxWidth: size == .fullWidth ? .infinity : nil, alignment: .leading)
                 trailing()
             }
-            .padding(.arcSelectablePadding)
-            .frame(alignment: .leading)
+            .padding(size == .fullWidth ? .arcSelectableLargePadding : .arcSelectablePadding)
+            .frame(maxWidth: size == .fullWidth ? .infinity : nil, alignment: .leading)
+            .background(isSelected ? Color.arcLightRed : .clear)
             .cornerRadius(.arcSelectableCorner)
             .overlay(
                 RoundedRectangle(cornerRadius: .arcSelectableCorner)
@@ -57,18 +61,54 @@ public struct ARCSelectable<Trailing: View>: View {
     }
 }
 
+
+// Mark : - Preview
 struct SwiftUIView_Previews: PreviewProvider {
     static var previews: some View {
+        let selected = false
         VStack {
             ARCSelectable(
-                title: "Radio Select",
-                isSelected: false,
-                onTap: {},
+                title: "Radio Filled",
+                isSelected: !selected, onTap: {},
                 trailing: {
-
+                    !selected ? Image.arcFilledRadio : Image.arcEmptySelectable
                 }
             )
-                .padding(.horizontal, .arcHorizontalPadding)
+            ARCSelectable(
+                title: "Selectable Empty",
+                isSelected: selected,
+                onTap: {},
+                trailing: {
+                    selected ? Image.arcFilledCheckbox : Image.arcEmptySelectable
+                }
+            )
+            ARCSelectable(
+                title: "Checkbox Filled",
+                isSelected: !selected,
+                onTap: {},
+                trailing: {
+                    !selected ? Image.arcFilledCheckbox : Image.arcEmptySelectable
+                }
+            )
+            .padding(.bottom, .arcVerticalPadding)
+            ARCSelectable(
+                title: "Selectable Empty",
+                isSelected: selected,
+                size: SelectableSize.fullWidth,
+                onTap: {},
+                trailing: {
+                    selected ? Image.arcFilledCheckbox : Image.arcEmptySelectable
+                }
+            )
+            ARCSelectable(
+                title: "Selectable Empty",
+                isSelected: !selected,
+                size: SelectableSize.fullWidth,
+                onTap: {},
+                trailing: {
+                    !selected ? Image.arcFilledRadio : Image.arcEmptySelectable
+                }
+            )
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.arcLightGray2)
