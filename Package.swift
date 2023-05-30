@@ -34,7 +34,8 @@ let package = Package(
                     package: "cubefoundation-ios"
                 )
             ],
-            path: "Sources"
+            path: "Sources",
+            resources: [.process("Resources/ArcMedia.xcasset")]
         ),
         .testTarget(
             name: "ArcUITests",
