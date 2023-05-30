@@ -35,9 +35,7 @@ public struct ARCSelectable: View {
     }
 
     var image: Image {
-        guard isSelected else {
-            return Image.arcEmptySelectable
-        }
+        guard isSelected else { return Image.arcEmptySelectable }
         return type == .radio ? Image.arcFilledRadio : Image.arcFilledCheckbox
     }
 
