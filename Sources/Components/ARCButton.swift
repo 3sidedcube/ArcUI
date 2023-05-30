@@ -58,12 +58,12 @@ public struct ARCButton: View {
                     .opacity(isLoading ? 1 : 0)
             }
             .frame(maxWidth: .infinity)
-            .padding(.vertical, .arcButtonPadding)
+            .padding(.vertical, .ArcButton.padding)
             .background(buttonStyle.backgroundColor)
-            .cornerRadius(.arcButtonCorner)
+            .cornerRadius(.ArcButton.cornerRadius)
             .overlay(
-                RoundedRectangle(cornerRadius: .arcButtonCorner)
-                    .strokeBorder(buttonStyle.borderColor, lineWidth: .arcButtonBorder)
+                RoundedRectangle(cornerRadius: .ArcButton.cornerRadius)
+                    .strokeBorder(buttonStyle.borderColor, lineWidth: .ArcButton.border)git 
             )
         }
     }
