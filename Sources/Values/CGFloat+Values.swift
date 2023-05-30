@@ -10,12 +10,15 @@ import SwiftUI
 
 public extension CGFloat {
 
-    static let arcButtonCorner: CGFloat = 6
-    static let arcButtonBorder: CGFloat = 1
-    static let arcButtonPadding: CGFloat = 14
-
     static let arcVerticalPadding: CGFloat = 16
     static let arcHorizontalPadding: CGFloat = 20
+
+    struct ArcButton {
+        static let cornerRadius: CGFloat = 6
+        static let border: CGFloat = 1
+        static let padding: CGFloat = 14
+
+    }
 
     struct ArcListItem {
         static let border: CGFloat = 2
