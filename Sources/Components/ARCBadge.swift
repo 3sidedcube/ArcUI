@@ -11,10 +11,10 @@ import SwiftUI
 public struct ARCBadge: View {
 
     public var title: String
-    public var color: Color?
+    public var color: Color
     public var textColor: Color?
 
-    public init(title: String, color: Color? = Color.arcRed, textColor: Color? = Color.arcWhite) {
+    public init(title: String, color: Color = Color.arcRed, textColor: Color? = Color.arcWhite) {
         self.title = title
         self.color = color
         self.textColor = textColor
