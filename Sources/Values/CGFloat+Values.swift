@@ -17,7 +17,6 @@ public extension CGFloat {
         static let cornerRadius: CGFloat = 6
         static let border: CGFloat = 1
         static let padding: CGFloat = 14
-
     }
 
     struct ArcListItem {
