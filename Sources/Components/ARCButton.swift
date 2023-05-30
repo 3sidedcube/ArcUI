@@ -37,6 +37,12 @@ public struct ARCButton: View {
         isLoading || !isEnabled ? .disabled : style
     }
 
+    public init(title: String, style: Style, onTap: @escaping () -> Void) {
+        self.title = title
+        self.style = style
+        self.onTap = onTap
+    }
+
     public var body: some View {
         Button(action: onTap) {
             ZStack {
@@ -68,7 +74,7 @@ public struct ARCButton: View {
 private extension ARCButton.Style {
 
     var backgroundColor: Color {
-        switch self  {
+        switch self {
         case .primary: return .arcRed
         case .secondary: return .clear
         case .disabled: return .arcDarkGray
@@ -76,7 +82,7 @@ private extension ARCButton.Style {
     }
 
     var borderColor: Color {
-        switch self  {
+        switch self {
         case .primary: return .clear
         case .secondary: return .arcBlue
         case .disabled: return .clear
@@ -84,7 +90,7 @@ private extension ARCButton.Style {
     }
 
     var textColor: Color {
-        switch self  {
+        switch self {
         case .primary: return .arcWhite
         case .secondary: return .arcBlue
         case .disabled: return .arcWhite

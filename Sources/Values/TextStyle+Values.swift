@@ -27,5 +27,31 @@ public extension TextStyle {
         lineHeight: 20,
         letter: 0.2,
         underline: false
+
+    static let arcListItemTitle = TextStyle(
+        font: .system,
+        weight: 600,
+        size: 15,
+        lineHeight: 18,
+        letter: 0.3,
+        underline: false
+    )
+
+    static let arcListItemSubtitle = TextStyle(
+        font: .system,
+        weight: 400,
+        size: 13,
+        lineHeight: 16,
+        letter: 0.3,
+        underline: false
+    )
+
+    static let arcBadge = TextStyle(
+        font: .system,
+        weight: 700,
+        size: 12,
+        lineHeight: 14,
+        letter: 0.12,
+        underline: false
     )
 }
