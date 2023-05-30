@@ -44,18 +44,18 @@ public struct ARCSelectable<Trailing: View>: View {
                 Text(title)
                     .style(.arcSelectable)
                     .foregroundColor(Color.arcBlack)
-                    .padding(.trailing, .arcSelectableTitlePadding)
+                    .padding(.trailing, .ArcSelectable.titlePadding)
                     .frame(maxWidth: size == .fullWidth ? .infinity : nil, alignment: .leading)
                 trailing()
             }
-            .padding(size == .fullWidth ? .arcSelectableLargePadding : .arcSelectablePadding)
+            .padding(size == .fullWidth ? .ArcSelectable.largePadding : .ArcSelectable.padding)
             .frame(maxWidth: size == .fullWidth ? .infinity : nil, alignment: .leading)
             .background(isSelected ? Color.arcLightRed : .clear)
-            .cornerRadius(.arcSelectableCorner)
+            .cornerRadius(.ArcSelectable.cornerRadius)
             .overlay(
-                RoundedRectangle(cornerRadius: .arcSelectableCorner)
+                RoundedRectangle(cornerRadius: .ArcSelectable.cornerRadius)
                     .strokeBorder(
-                        isSelected ? Color.arcRed : Color.arcBorderGray, lineWidth: .arcSelectableBorder)
+                        isSelected ? Color.arcRed : Color.arcBorderGray, lineWidth: .ArcSelectable.border)
             )
         }
     }
