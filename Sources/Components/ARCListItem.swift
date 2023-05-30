@@ -46,19 +46,18 @@ public struct ARCListItem<Leading: View, Trailing: View>: View {
                             .style(.arcListItemTitle)
                             .foregroundColor(.arcBlack)
                         if let subtitle = subtitle {
-                            Text(subtitle)
+                            Text(subtitle)git 
                                 .style(.arcListItemSubtitle)
                                 .foregroundColor(.arcDarkGray)
                         }
                     }
-                    .multilineTextAlignment(.leading)
-
                     if let badgetitle = badgetitle {
                         ARCBadge(title: badgetitle)
                             .padding(.leading, .arcListItemBadgeLeadingPadding)
                     }
                 }
-                Spacer()
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .multilineTextAlignment(.leading)
                 trailing()
             }
         }
