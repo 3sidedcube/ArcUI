@@ -38,7 +38,7 @@ public struct ARCListItem<Leading: View, Trailing: View>: View {
 
     public var body: some View {
         Button(action: onTap) {
-            HStack(alignment: .center, spacing: 0) {
+            HStack(spacing: 0) {
                 leading()
                 VStack(alignment: .leading, spacing: .ArcListItem.spacing) {
                     Text(title)
@@ -75,7 +75,6 @@ struct ARCListItem_Previews: PreviewProvider {
 
     static var previews: some View {
         VStack {
-            Spacer()
             VStack {
                 ARCListItem(
                     title: "Map Overlay",
@@ -132,7 +131,6 @@ struct ARCListItem_Previews: PreviewProvider {
                 )
             }
             .padding(.horizontal, .arcHorizontalPadding)
-            Spacer()
         }
         .background(Color.arcBackground)
     }
