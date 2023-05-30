@@ -41,19 +41,19 @@ public struct ARCListItem<Leading: View, Trailing: View>: View {
             HStack {
                 HStack(alignment: .center, spacing: 0) {
                     leading()
-                    VStack(alignment: .leading, spacing: .arcListItemSpacing) {
+                    VStack(alignment: .leading, spacing: .ArcListItem.spacing) {
                         Text(title)
                             .style(.arcListItemTitle)
                             .foregroundColor(.arcBlack)
                         if let subtitle = subtitle {
-                            Text(subtitle)git 
+                            Text(subtitle)
                                 .style(.arcListItemSubtitle)
                                 .foregroundColor(.arcDarkGray)
                         }
                     }
                     if let badgetitle = badgetitle {
                         ARCBadge(title: badgetitle)
-                            .padding(.leading, .arcListItemBadgeLeadingPadding)
+                            .padding(.leading, .ArcListItem.badgeLeadingPadding)
                     }
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -66,7 +66,7 @@ public struct ARCListItem<Leading: View, Trailing: View>: View {
         .background(Color.arcWhite)
         .overlay(
             Rectangle()
-                .frame(height: .arcListItemBorder)
+                .frame(height: .ArcListItem.border)
                 .foregroundColor(Color.arcLightGray)
             , alignment: .bottom
         )
@@ -84,7 +84,7 @@ struct ARCListItem_Previews: PreviewProvider {
                     leading: { EmptyView() },
                     trailing: {
                         Image.arcRoundedRightChevron
-                            .padding(.leading, .arcListItemChevronPadding)
+                            .padding(.leading, .ArcListItem.chevronPadding)
                     },
                     onTap: {}
                 )
@@ -94,7 +94,7 @@ struct ARCListItem_Previews: PreviewProvider {
                     leading: { EmptyView() },
                     trailing: {
                         Image.arcRoundedRightChevron
-                            .padding(.leading, .arcListItemChevronPadding)
+                            .padding(.leading, .ArcListItem.chevronPadding)
                     },
                     onTap: {}
                 )
@@ -104,7 +104,7 @@ struct ARCListItem_Previews: PreviewProvider {
                     leading: { EmptyView() },
                     trailing: {
                         Image.arcRoundedRightChevron
-                            .padding(.leading, .arcListItemChevronPadding)
+                            .padding(.leading, .ArcListItem.chevronPadding)
                     },
                     onTap: {}
                 )
@@ -115,7 +115,7 @@ struct ARCListItem_Previews: PreviewProvider {
                     leading: { EmptyView() },
                     trailing: {
                         Image.arcRoundedRightChevron
-                            .padding(.leading, .arcListItemChevronPadding)
+                            .padding(.leading, .ArcListItem.chevronPadding)
                     },
                     onTap: {}
                 )
@@ -128,7 +128,7 @@ struct ARCListItem_Previews: PreviewProvider {
                     },
                     trailing: {
                         Image.arcRoundedRightChevron
-                            .padding(.leading, .arcListItemChevronPadding)
+                            .padding(.leading, .ArcListItem.chevronPadding)
                     },
                     onTap: {}
                 )
