@@ -14,4 +14,5 @@ public extension Image {
     static let arcEmptySelectable = Image(uiImage: UIImage(named: "Arc-Empty-Selectable", in: .module, with: nil)!)
     static let arcFilledRadio = Image(uiImage: UIImage(named: "Arc-Filled-Radio", in: .module, with: nil)!)
     static let arcFilledCheckbox = Image(uiImage: UIImage(named: "Arc-Filled-Checkbox", in: .module, with: nil)!)
+    static let arcImageCardPreview = Image(uiImage: UIImage(named: "Arc-Image-Card-Preview", in: .module, with: nil)!)
 }
