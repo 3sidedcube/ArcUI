@@ -8,16 +8,11 @@
 
 import SwiftUI
 
-public enum SelectableSize: String {
-    case small = "Small"
-    case fullWidth = "FullWidth"
-}
-
 public struct ARCSelectable<Trailing: View>: View {
 
     public var title: String
     public var isSelected: Bool
-    public var size: SelectableSize
+    public var isFullWidth: Bool
     public var onTap: () -> Void
 
     @ViewBuilder public var trailing: () -> Trailing
@@ -25,13 +20,13 @@ public struct ARCSelectable<Trailing: View>: View {
     init (
         title: String,
         isSelected: Bool,
-        size: SelectableSize = .small,
+        isFullWidth: Bool = false,
         onTap: @escaping () -> Void,
         @ViewBuilder trailing: @escaping () -> Trailing
     ) {
         self.title = title
         self.isSelected = isSelected
-        self.size = size
+        self.isFullWidth = isFullWidth
         self.onTap = onTap
         self.trailing = trailing
     }
@@ -45,11 +40,11 @@ public struct ARCSelectable<Trailing: View>: View {
                     .style(.arcSelectable)
                     .foregroundColor(Color.arcBlack)
                     .padding(.trailing, .ArcSelectable.titlePadding)
-                    .frame(maxWidth: size == .fullWidth ? .infinity : nil, alignment: .leading)
+                    .frame(maxWidth: isFullWidth ? .infinity : nil, alignment: .leading)
                 trailing()
             }
-            .padding(size == .fullWidth ? .ArcSelectable.largePadding : .ArcSelectable.padding)
-            .frame(maxWidth: size == .fullWidth ? .infinity : nil, alignment: .leading)
+            .padding(isFullWidth ? .ArcSelectable.largePadding : .ArcSelectable.padding)
+            .frame(maxWidth: isFullWidth ? .infinity : nil, alignment: .leading)
             .background(isSelected ? Color.arcLightRed : .clear)
             .cornerRadius(.ArcSelectable.cornerRadius)
             .overlay(
@@ -94,7 +89,7 @@ struct SwiftUIView_Previews: PreviewProvider {
             ARCSelectable(
                 title: "Selectable Empty",
                 isSelected: selected,
-                size: SelectableSize.fullWidth,
+                isFullWidth: true,
                 onTap: {},
                 trailing: {
                     selected ? Image.arcFilledCheckbox : Image.arcEmptySelectable
@@ -103,7 +98,7 @@ struct SwiftUIView_Previews: PreviewProvider {
             ARCSelectable(
                 title: "Selectable Empty",
                 isSelected: !selected,
-                size: SelectableSize.fullWidth,
+                isFullWidth: true,
                 onTap: {},
                 trailing: {
                     !selected ? Image.arcFilledRadio : Image.arcEmptySelectable
