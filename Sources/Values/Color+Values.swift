@@ -16,6 +16,9 @@ public extension Color {
     static let arcWhite = Color(white255: 255)
     static let arcDarkGray = Color(red255: 109, green: 110, blue: 112)
     static let arcLightGray = Color(red255: 246, green: 246, blue: 246)
+    static let arcBorderGray = Color(red255: 205, green: 205, blue: 205)
     static let arcRed = Color(red255: 231, green: 19, blue: 1)
+    static let arcLightRed = Color(red255: 247, green:198, blue:202)
     static let arcBlue = Color(red255: 0, green: 124, blue: 175)
 }
+
