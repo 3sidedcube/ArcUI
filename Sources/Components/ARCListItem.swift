@@ -64,7 +64,7 @@ public struct ARCListItem<Leading: View, Trailing: View>: View {
         .background(Color.arcWhite)
         .overlay(
             Rectangle()
-                .frame(height: .ArcListItem.border)
+                .frame(height: .arcBorder)
                 .foregroundColor(Color.arcLightGray)
             , alignment: .bottom
         )

@@ -27,8 +27,10 @@ public struct ARCImageCard: View {
                 Text(title)
                     .style(.arcH3)
                 Text(subtitle)
+                    .style(.arcH4)
+                    .foregroundColor(.arcDarkGray)
             }
-            .padding(16)
+            .padding(.ArcImageCard.padding)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .background(Color.yellow)

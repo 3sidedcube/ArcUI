@@ -12,15 +12,15 @@ public extension CGFloat {
 
     static let arcVerticalPadding: CGFloat = 16
     static let arcHorizontalPadding: CGFloat = 20
+    static let arcCornerRadius: CGFloat = 6
+    static let arcBorder: CGFloat = 2
     
     struct ArcButton {
-        static let cornerRadius: CGFloat = 6
         static let border: CGFloat = 1
         static let padding: CGFloat = 14
     }
 
     struct ArcListItem {
-        static let border: CGFloat = 2
         static let spacing: CGFloat = 4
         static let chevronPadding: CGFloat = 24
         static let leadingPadding: CGFloat = 25
@@ -33,15 +33,16 @@ public extension CGFloat {
     struct ArcLabel {
         static let verticalPadding: CGFloat = 4
         static let horizontalPadding: CGFloat = 8
-        static let cornerRadius: CGFloat = 6
     }
 
     struct ArcSelectable {
         static let padding: CGFloat = 12
         static let largePadding: CGFloat = 20
         static let spacing: CGFloat = 16
-        static let border: CGFloat = 2
-        static let cornerRadius: CGFloat = 6
+    }
+
+    struct ArcImageCard {
+        static let padding: CGFloat = 16
     }
 }
 

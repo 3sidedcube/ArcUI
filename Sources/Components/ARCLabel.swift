@@ -26,7 +26,7 @@ public struct ARCLabel: View {
             .foregroundColor(textColor)
             .padding(.arcLabel)
             .background(color)
-            .cornerRadius(.ArcLabel.cornerRadius)
+            .cornerRadius(.arcCornerRadius)
     }
 }
 
