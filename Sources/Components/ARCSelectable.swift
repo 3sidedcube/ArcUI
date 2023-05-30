@@ -55,7 +55,7 @@ public struct ARCSelectable<Trailing: View>: View {
             .overlay(
                 RoundedRectangle(cornerRadius: .arcSelectableCorner)
                     .strokeBorder(
-                        isSelected ? Color.arcRed : Color.arcLightGray3, lineWidth: .arcSelectableBorder)
+                        isSelected ? Color.arcRed : Color.arcBorderGray, lineWidth: .arcSelectableBorder)
             )
         }
     }
@@ -111,6 +111,6 @@ struct SwiftUIView_Previews: PreviewProvider {
             )
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color.arcLightGray2)
+        .background(Color.arcLightGray)
     }
 }
