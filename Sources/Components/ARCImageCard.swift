@@ -64,6 +64,7 @@ public struct ARCImageCard: View {
             }
             .background(Color.arcWhite)
             .cornerRadius(.arcCornerRadius)
+            .shadow(.arcContainer)
         }
         .buttonStyle(PlainButtonStyle())
     }
