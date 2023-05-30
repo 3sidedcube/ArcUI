@@ -23,18 +23,22 @@ public extension CGFloat {
     static let arcSelectableCorner: CGFloat = 6
     static let arcSelectableTitlePadding: CGFloat = 16
 
-    static let arcListItemBorder: CGFloat = 2
-    static let arcListItemSpacing: CGFloat = 4
-    static let arcListItemChevronPadding: CGFloat = 24
-    static let arcListItemLeadingPadding: CGFloat = 25
-    static let arcListItemTrailingPadding: CGFloat = 16
-    static let arcListItemVerticalPadding: CGFloat = 32
-    static let arcListItemVerticalPaddingSubtitle: CGFloat = 26
-    static let arcListItemBadgeLeadingPadding: CGFloat = 6
+    struct ArcListItem {
+        static let border: CGFloat = 2
+        static let spacing: CGFloat = 4
+        static let chevronPadding: CGFloat = 24
+        static let leadingPadding: CGFloat = 25
+        static let trailingPadding: CGFloat = 16
+        static let verticalPadding: CGFloat = 32
+        static let verticalPaddingSubtitle: CGFloat = 26
+        static let badgeLeadingPadding: CGFloat = 6
+    }
 
-    static let arcBadgeVerticalPadding: CGFloat = 4
-    static let arcBadgeHorizontalPadding: CGFloat = 8
-    static let arcBadgeCorner: CGFloat = 6
+    struct ArcBadge {
+        static let verticalPadding: CGFloat = 4
+        static let horizontalPadding: CGFloat = 8
+        static let cornerRadius: CGFloat = 6
+    }
 }
 
 // MARK: - EdgeInsets + Values
@@ -49,23 +53,23 @@ extension EdgeInsets {
     )
 
     static let arcListItemContainer = EdgeInsets(
-        top: .arcListItemVerticalPadding,
-        leading: .arcListItemLeadingPadding,
-        bottom: .arcListItemVerticalPadding,
-        trailing: .arcListItemTrailingPadding
+        top: .ArcListItem.verticalPadding,
+        leading: .ArcListItem.leadingPadding,
+        bottom: .ArcListItem.verticalPadding,
+        trailing: .ArcListItem.trailingPadding
     )
 
     static let arcListItemContainerSubtitle = EdgeInsets(
-        top: .arcListItemVerticalPaddingSubtitle,
-        leading: .arcListItemLeadingPadding,
-        bottom: .arcListItemVerticalPaddingSubtitle,
-        trailing: .arcListItemTrailingPadding
+        top: .ArcListItem.verticalPaddingSubtitle,
+        leading: .ArcListItem.leadingPadding,
+        bottom: .ArcListItem.verticalPaddingSubtitle,
+        trailing: .ArcListItem.trailingPadding
     )
 
     static let arcBadge = EdgeInsets(
-        top: .arcBadgeVerticalPadding,
-        leading: .arcBadgeHorizontalPadding,
-        bottom: .arcBadgeVerticalPadding,
-        trailing: .arcBadgeHorizontalPadding
+        top: .ArcBadge.verticalPadding,
+        leading: .ArcBadge.horizontalPadding,
+        bottom: .ArcBadge.verticalPadding,
+        trailing: .ArcBadge.horizontalPadding
     )
 }

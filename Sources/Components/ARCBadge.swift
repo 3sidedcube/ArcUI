@@ -28,7 +28,7 @@ public struct ARCBadge: View {
                 .padding(.arcBadge)
         }
         .background(color)
-        .cornerRadius(.arcBadgeCorner)
+        .cornerRadius(.ArcBadge.cornerRadius)
     }
 }
 
