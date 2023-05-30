@@ -35,7 +35,7 @@ let package = Package(
                 )
             ],
             path: "Sources",
-            resources: [.process("Resources/ArcMedia.xcasset")]g
+            resources: [.process("Resources/ArcMedia.xcasset")]
         ),
         .testTarget(
             name: "ArcUITests",

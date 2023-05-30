@@ -14,7 +14,7 @@ public struct ARCListItem<Leading: View, Trailing: View>: View {
 
     public var title: String
     public var subtitle: String?
-    public var badgeTitle: String?
+    public var labelTitle: String?
     public var onTap: () -> Void
 
     @ViewBuilder public var leading: () -> Leading
@@ -23,14 +23,14 @@ public struct ARCListItem<Leading: View, Trailing: View>: View {
     public init(
         title: String,
         subtitle: String? = nil,
-        badgeTitle: String? = nil,
+        labelTitle: String? = nil,
         @ViewBuilder leading: @escaping () -> Leading,
         @ViewBuilder trailing: @escaping () -> Trailing,
         onTap: @escaping () -> Void
     ) {
         self.title = title
         self.subtitle = subtitle
-        self.badgeTitle = badgeTitle
+        self.labelTitle = labelTitle
         self.leading = leading
         self.trailing = trailing
         self.onTap = onTap
@@ -51,9 +51,9 @@ public struct ARCListItem<Leading: View, Trailing: View>: View {
                                 .foregroundColor(.arcDarkGray)
                         }
                     }
-                    if let badgeTitle = badgeTitle {
-                        ARCBadge(title: badgeTitle)
-                            .padding(.leading, .ArcListItem.badgeLeadingPadding)
+                    if let labelTitle = labelTitle {
+                        ARCLabel(title: labelTitle)
+                            .padding(.leading, .ArcListItem.labelLeadingPadding)
                     }
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -111,7 +111,7 @@ struct ARCListItem_Previews: PreviewProvider {
 
                 ARCListItem(
                     title: "Map Overlay",
-                    badgeTitle: "New",
+                    labelTitle: "New",
                     leading: { EmptyView() },
                     trailing: {
                         Image.arcRoundedRightChevron
