@@ -44,13 +44,13 @@ public struct ARCListItem<Leading: View, Trailing: View>: View {
                     Text(title)
                         .style(.arcListItemTitle)
                         .foregroundColor(.arcBlack)
-                    if let subtitle = subtitle {
+                    if let subtitle {
                         Text(subtitle)
                             .style(.arcListItemSubtitle)
                             .foregroundColor(.arcDarkGray)
                     }
                 }
-                if let labelTitle = labelTitle {
+                if let labelTitle {
                     ARCLabel(title: labelTitle)
                         .padding(.leading, .ArcListItem.labelLeadingPadding)
                 }
