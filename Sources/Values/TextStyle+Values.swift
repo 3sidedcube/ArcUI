@@ -13,7 +13,7 @@ public extension TextStyle {
 
     // MARK: Headline
 
-    static let arcH1 = TextStyle (
+    static let arcH1 = TextStyle(
         font: .system,
         weight: 800,
         size: 36,
@@ -22,7 +22,7 @@ public extension TextStyle {
         underline: false
     )
 
-    static let arcH2 = TextStyle (
+    static let arcH2 = TextStyle(
         font: .system,
         weight: 800,
         size: 21,
@@ -31,7 +31,7 @@ public extension TextStyle {
         underline: false
     )
 
-    static let arcH3 = TextStyle (
+    static let arcH3 = TextStyle(
         font: .system,
         weight: 800,
         size: 18,
@@ -40,7 +40,7 @@ public extension TextStyle {
         underline: false
     )
 
-    static let arcH4 = TextStyle (
+    static let arcH4 = TextStyle(
         font: .system,
         weight: 600,
         size: 15,
@@ -51,7 +51,7 @@ public extension TextStyle {
 
     // MARK: Sub
 
-    static let arcSub1 = TextStyle (
+    static let arcSub1 = TextStyle(
         font: .system,
         weight: 500,
         size: 14,
@@ -63,7 +63,7 @@ public extension TextStyle {
 
     // MARK: Body
 
-    static let arcBody1 = TextStyle (
+    static let arcBody1 = TextStyle(
         font: .system,
         weight: 400,
         size: 13,
@@ -72,7 +72,7 @@ public extension TextStyle {
         underline: false
     )
 
-    static let arcBody2 = TextStyle (
+    static let arcBody2 = TextStyle(
         font: .system,
         weight: 400,
         size: 13,
@@ -82,7 +82,7 @@ public extension TextStyle {
     )
 
     // MARK: Overline
-    static let arcOverline = TextStyle (
+    static let arcOverline = TextStyle(
         font: .system,
         weight: 700,
         size: 12,
