@@ -21,14 +21,12 @@ public struct ARCBadge: View {
     }
 
     public var body: some View {
-        VStack {
-            Text(title)
-                .style(.arcBadge)
-                .foregroundColor(textColor)
-                .padding(.arcBadge)
-        }
-        .background(color)
-        .cornerRadius(.ArcBadge.cornerRadius)
+        Text(title)
+            .style(.arcBadge)
+            .foregroundColor(textColor)
+            .padding(.arcBadge)
+            .background(color)
+            .cornerRadius(.ArcBadge.cornerRadius)
     }
 }
 
