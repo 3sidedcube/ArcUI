@@ -47,7 +47,7 @@ public extension TextStyle {
         underline: false
     )
 
-    static let arcBadge = TextStyle(
+    static let arcLabel = TextStyle(
         font: .system,
         weight: 700,
         size: 12,

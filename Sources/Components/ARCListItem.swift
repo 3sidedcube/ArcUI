@@ -14,7 +14,7 @@ public struct ARCListItem<Leading: View, Trailing: View>: View {
 
     public var title: String
     public var subtitle: String?
-    public var badgetitle: String?
+    public var labelTitle: String?
     public var onTap: () -> Void
 
     @ViewBuilder public var leading: () -> Leading
@@ -23,14 +23,14 @@ public struct ARCListItem<Leading: View, Trailing: View>: View {
     public init(
         title: String,
         subtitle: String? = nil,
-        badgetitle: String? = nil,
+        labelTitle: String? = nil,
         @ViewBuilder leading: @escaping () -> Leading,
         @ViewBuilder trailing: @escaping () -> Trailing,
         onTap: @escaping () -> Void
     ) {
         self.title = title
         self.subtitle = subtitle
-        self.badgetitle = badgetitle
+        self.labelTitle = labelTitle
         self.leading = leading
         self.trailing = trailing
         self.onTap = onTap
@@ -38,28 +38,26 @@ public struct ARCListItem<Leading: View, Trailing: View>: View {
 
     public var body: some View {
         Button(action: onTap) {
-            HStack {
-                HStack(alignment: .center, spacing: 0) {
-                    leading()
-                    VStack(alignment: .leading, spacing: .ArcListItem.spacing) {
-                        Text(title)
-                            .style(.arcListItemTitle)
-                            .foregroundColor(.arcBlack)
-                        if let subtitle = subtitle {
-                            Text(subtitle)
-                                .style(.arcListItemSubtitle)
-                                .foregroundColor(.arcDarkGray)
-                        }
-                    }
-                    if let badgetitle = badgetitle {
-                        ARCBadge(title: badgetitle)
-                            .padding(.leading, .ArcListItem.badgeLeadingPadding)
+            HStack(spacing: 0) {
+                leading()
+                VStack(alignment: .leading, spacing: .ArcListItem.spacing) {
+                    Text(title)
+                        .style(.arcListItemTitle)
+                        .foregroundColor(.arcBlack)
+                    if let subtitle {
+                        Text(subtitle)
+                            .style(.arcListItemSubtitle)
+                            .foregroundColor(.arcDarkGray)
                     }
                 }
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .multilineTextAlignment(.leading)
-                trailing()
+                if let labelTitle {
+                    ARCLabel(title: labelTitle)
+                        .padding(.leading, .ArcListItem.labelLeadingPadding)
+                }
             }
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .multilineTextAlignment(.leading)
+            trailing()
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding(subtitle == nil ? EdgeInsets.arcListItemContainer : EdgeInsets.arcListItemContainerSubtitle)
@@ -77,7 +75,6 @@ struct ARCListItem_Previews: PreviewProvider {
 
     static var previews: some View {
         VStack {
-            Spacer()
             VStack {
                 ARCListItem(
                     title: "Map Overlay",
@@ -111,7 +108,7 @@ struct ARCListItem_Previews: PreviewProvider {
 
                 ARCListItem(
                     title: "Map Overlay",
-                    badgetitle: "New",
+                    labelTitle: "New",
                     leading: { EmptyView() },
                     trailing: {
                         Image.arcRoundedRightChevron
@@ -134,7 +131,6 @@ struct ARCListItem_Previews: PreviewProvider {
                 )
             }
             .padding(.horizontal, .arcHorizontalPadding)
-            Spacer()
         }
         .background(Color.arcBackground)
     }

@@ -28,10 +28,10 @@ public extension CGFloat {
         static let trailingPadding: CGFloat = 16
         static let verticalPadding: CGFloat = 32
         static let verticalPaddingSubtitle: CGFloat = 26
-        static let badgeLeadingPadding: CGFloat = 6
+        static let labelLeadingPadding: CGFloat = 6
     }
 
-    struct ArcBadge {
+    struct ArcLabel {
         static let verticalPadding: CGFloat = 4
         static let horizontalPadding: CGFloat = 8
         static let cornerRadius: CGFloat = 6
@@ -71,10 +71,10 @@ extension EdgeInsets {
         trailing: .ArcListItem.trailingPadding
     )
 
-    static let arcBadge = EdgeInsets(
-        top: .ArcBadge.verticalPadding,
-        leading: .ArcBadge.horizontalPadding,
-        bottom: .ArcBadge.verticalPadding,
-        trailing: .ArcBadge.horizontalPadding
+    static let arcLabel = EdgeInsets(
+        top: .ArcLabel.verticalPadding,
+        leading: .ArcLabel.horizontalPadding,
+        bottom: .ArcLabel.verticalPadding,
+        trailing: .ArcLabel.horizontalPadding
     )
 }
