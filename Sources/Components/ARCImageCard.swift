@@ -1,5 +1,5 @@
 //
-//  ARCImageContainer.swift
+//  ARCImageCard.swift
 //  ArcUI
 //
 //  Created by Vlad Bibire on 30/05/2023.
