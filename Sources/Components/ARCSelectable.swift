@@ -55,7 +55,7 @@ public struct ARCSelectable: View {
             .overlay(
                 RoundedRectangle(cornerRadius: .arcCornerRadius)
                     .strokeBorder(
-                        isSelected ? Color.arcRed : Color.arcBorderGray, lineWidth: .arcCornerRadius)
+                        isSelected ? Color.arcRed : Color.arcBorderGray, lineWidth: .arcBorder)
             )
         }
     }

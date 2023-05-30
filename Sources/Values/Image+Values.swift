@@ -10,6 +10,7 @@ import SwiftUI
 
 public extension Image {
     static let arcRoundedRightChevron = Image(uiImage: UIImage(named: "Arc-Rounded-Right-Chevron", in: .module, with: nil)!)
+    static let arcRoundedRightChevronDisabled = Image(uiImage: UIImage(named: "Arc-Rounded-Right-Chevron-Disabled", in: .module, with: nil)!)
     static let arcListItemLeading = Image(uiImage: UIImage(named: "Arc-List-Item-Leading", in: .module, with: nil)!)
     static let arcEmptySelectable = Image(uiImage: UIImage(named: "Arc-Empty-Selectable", in: .module, with: nil)!)
     static let arcFilledRadio = Image(uiImage: UIImage(named: "Arc-Filled-Radio", in: .module, with: nil)!)

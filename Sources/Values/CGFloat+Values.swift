@@ -47,6 +47,12 @@ public extension CGFloat {
         static let footerTopPadding: CGFloat = 12
         static let imageHeight: CGFloat = 140
     }
+
+    struct ArcNavigationButton {
+        static let padding: CGFloat = 14
+        static let trailingPadding: CGFloat = 12
+        static let border: CGFloat = 1
+    }
 }
 
 // MARK: - EdgeInsets + Values
@@ -86,5 +92,12 @@ extension EdgeInsets {
         leading: .ArcImageCard.padding,
         bottom: .ArcImageCard.footerBottomPadding,
         trailing: .ArcImageCard.padding
+    )
+
+    static let arcNavigationButton = EdgeInsets(
+        top: .ArcNavigationButton.padding,
+        leading: .ArcNavigationButton.padding,
+        bottom: .ArcNavigationButton.padding,
+        trailing: .ArcNavigationButton.trailingPadding
     )
 }
