@@ -8,27 +8,31 @@
 
 import SwiftUI
 
-public struct ARCSelectable<Trailing: View>: View {
+public enum ARCSelectableType {
+    case radio
+    case checkbox
+}
+
+public struct ARCSelectable: View {
 
     public var title: String
+    public var type: ARCSelectableType
     public var isSelected: Bool
     public var isFullWidth: Bool
     public var onTap: () -> Void
 
-    @ViewBuilder public var trailing: () -> Trailing
-
     init (
         title: String,
+        type: ARCSelectableType = .radio,
         isSelected: Bool,
         isFullWidth: Bool = false,
-        onTap: @escaping () -> Void,
-        @ViewBuilder trailing: @escaping () -> Trailing
+        onTap: @escaping () -> Void
     ) {
         self.title = title
+        self.type = type
         self.isSelected = isSelected
         self.isFullWidth = isFullWidth
         self.onTap = onTap
-        self.trailing = trailing
     }
 
 
@@ -40,7 +44,11 @@ public struct ARCSelectable<Trailing: View>: View {
                     .style(.arcListItemTitle)
                     .foregroundColor(Color.arcBlack)
                     .frame(maxWidth: isFullWidth ? .infinity : nil, alignment: .leading)
-                trailing()
+                if isSelected {
+                    type == .radio ? Image.arcFilledRadio : Image.arcFilledCheckbox
+                } else {
+                    Image.arcEmptySelectable
+                }
             }
             .padding(isFullWidth ? .ArcSelectable.largePadding : .ArcSelectable.padding)
             .frame(maxWidth: isFullWidth ? .infinity : nil, alignment: .leading)
@@ -57,51 +65,38 @@ public struct ARCSelectable<Trailing: View>: View {
 
 
 // Mark : - Preview
-struct SwiftUIView_Previews: PreviewProvider {
+struct ARCSelectable_Previews: PreviewProvider {
     static var previews: some View {
         let selected = false
         VStack {
             ARCSelectable(
                 title: "Radio Filled",
-                isSelected: !selected, onTap: {},
-                trailing: {
-                    !selected ? Image.arcFilledRadio : Image.arcEmptySelectable
-                }
+                isSelected: !selected,
+                onTap: {}
             )
             ARCSelectable(
                 title: "Selectable Empty",
                 isSelected: selected,
-                onTap: {},
-                trailing: {
-                    selected ? Image.arcFilledCheckbox : Image.arcEmptySelectable
-                }
+                onTap: {}
             )
             ARCSelectable(
                 title: "Checkbox Filled",
+                type: .checkbox,
                 isSelected: !selected,
-                onTap: {},
-                trailing: {
-                    !selected ? Image.arcFilledCheckbox : Image.arcEmptySelectable
-                }
+                onTap: {}
             )
             .padding(.bottom, .arcVerticalPadding)
             ARCSelectable(
                 title: "Selectable Empty",
                 isSelected: selected,
                 isFullWidth: true,
-                onTap: {},
-                trailing: {
-                    selected ? Image.arcFilledCheckbox : Image.arcEmptySelectable
-                }
+                onTap: {}
             )
             ARCSelectable(
                 title: "Selectable Empty",
                 isSelected: !selected,
                 isFullWidth: true,
-                onTap: {},
-                trailing: {
-                    !selected ? Image.arcFilledRadio : Image.arcEmptySelectable
-                }
+                onTap: {}
             )
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
