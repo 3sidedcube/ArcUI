@@ -40,7 +40,7 @@ public extension CGFloat {
     struct ArcSelectable {
         static let padding: CGFloat = 12
         static let largePadding: CGFloat = 20
-        static let titlePadding: CGFloat = 16
+        static let spacing: CGFloat = 16
         static let border: CGFloat = 2
         static let cornerRadius: CGFloat = 6
     }

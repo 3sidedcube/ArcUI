@@ -35,13 +35,12 @@ public struct ARCSelectable<Trailing: View>: View {
 
     public var body: some View {
         Button(action: onTap) {
-            HStack {
+            HStack(spacing: .ArcSelectable.spacing) {
                 Text(title)
                     .style(.arcSelectable)
                     .foregroundColor(Color.arcBlack)
-                    .padding(.trailing, .ArcSelectable.titlePadding)
                     .frame(maxWidth: isFullWidth ? .infinity : nil, alignment: .leading)
-                trailing()
+                trailing()gi
             }
             .padding(isFullWidth ? .ArcSelectable.largePadding : .ArcSelectable.padding)
             .frame(maxWidth: isFullWidth ? .infinity : nil, alignment: .leading)
