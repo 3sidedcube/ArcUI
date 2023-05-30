@@ -35,8 +35,6 @@ public struct ARCSelectable: View {
         self.onTap = onTap
     }
 
-
-
     public var body: some View {
         Button(action: onTap) {
             HStack(spacing: .ArcSelectable.spacing) {
