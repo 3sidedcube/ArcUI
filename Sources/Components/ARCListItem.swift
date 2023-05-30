@@ -38,28 +38,26 @@ public struct ARCListItem<Leading: View, Trailing: View>: View {
 
     public var body: some View {
         Button(action: onTap) {
-            HStack {
-                HStack(alignment: .center, spacing: 0) {
-                    leading()
-                    VStack(alignment: .leading, spacing: .ArcListItem.spacing) {
-                        Text(title)
-                            .style(.arcListItemTitle)
-                            .foregroundColor(.arcBlack)
-                        if let subtitle = subtitle {
-                            Text(subtitle)
-                                .style(.arcListItemSubtitle)
-                                .foregroundColor(.arcDarkGray)
-                        }
-                    }
-                    if let labelTitle = labelTitle {
-                        ARCLabel(title: labelTitle)
-                            .padding(.leading, .ArcListItem.labelLeadingPadding)
+            HStack(alignment: .center, spacing: 0) {
+                leading()
+                VStack(alignment: .leading, spacing: .ArcListItem.spacing) {
+                    Text(title)
+                        .style(.arcListItemTitle)
+                        .foregroundColor(.arcBlack)
+                    if let subtitle = subtitle {
+                        Text(subtitle)
+                            .style(.arcListItemSubtitle)
+                            .foregroundColor(.arcDarkGray)
                     }
                 }
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .multilineTextAlignment(.leading)
-                trailing()
+                if let labelTitle = labelTitle {
+                    ARCLabel(title: labelTitle)
+                        .padding(.leading, .ArcListItem.labelLeadingPadding)
+                }
             }
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .multilineTextAlignment(.leading)
+            trailing()
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding(subtitle == nil ? EdgeInsets.arcListItemContainer : EdgeInsets.arcListItemContainerSubtitle)
