@@ -19,4 +19,13 @@ public extension TextStyle {
         letter: 0.6,
         underline: false
     )
+
+    static let arcSelectable = TextStyle(
+        font: .system,
+        weight: 600,
+        size: 15,
+        lineHeight: 20,
+        letter: 0.2,
+        underline: false
+    )
 }
