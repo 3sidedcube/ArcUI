@@ -43,8 +43,7 @@ public extension CGFloat {
 
     struct ArcImageCard {
         static let padding: CGFloat = 16
-        static let footerBottomPadding: CGFloat = 18
-        static let footerTopPadding: CGFloat = 12
+        static let footerVerticalPadding: CGFloat = 18
         static let imageHeight: CGFloat = 140
     }
 
@@ -88,9 +87,9 @@ extension EdgeInsets {
     )
 
     static let arcImageCardFooter = EdgeInsets(
-        top: .ArcImageCard.footerTopPadding,
+        top: .ArcImageCard.footerVerticalPadding,
         leading: .ArcImageCard.padding,
-        bottom: .ArcImageCard.footerBottomPadding,
+        bottom: .ArcImageCard.footerVerticalPadding,
         trailing: .ArcImageCard.padding
     )
 
