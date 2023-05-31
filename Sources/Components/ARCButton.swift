@@ -60,10 +60,10 @@ public struct ARCButton: View {
             .frame(maxWidth: .infinity)
             .padding(.vertical, .ArcButton.padding)
             .background(buttonStyle.backgroundColor)
-            .cornerRadius(.ArcButton.cornerRadius)
+            .cornerRadius(.arcCornerRadius)
             .overlay(
-                RoundedRectangle(cornerRadius: .ArcButton.cornerRadius)
-                    .strokeBorder(buttonStyle.borderColor, lineWidth: .ArcButton.border) 
+                RoundedRectangle(cornerRadius: .arcCornerRadius)
+                    .strokeBorder(buttonStyle.borderColor, lineWidth: .arcBorder) 
             )
         }
     }

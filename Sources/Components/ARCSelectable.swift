@@ -43,7 +43,7 @@ public struct ARCSelectable: View {
         Button(action: onTap) {
             HStack(spacing: .ArcSelectable.spacing) {
                 Text(title)
-                    .style(.arcListItemTitle)
+                    .style(.arcH4)
                     .foregroundColor(Color.arcBlack)
                     .frame(maxWidth: isFullWidth ? .infinity : nil, alignment: .leading)
                 image
@@ -51,11 +51,11 @@ public struct ARCSelectable: View {
             .padding(isFullWidth ? .ArcSelectable.largePadding : .ArcSelectable.padding)
             .frame(maxWidth: isFullWidth ? .infinity : nil, alignment: .leading)
             .background(isSelected ? Color.arcLightRed : .clear)
-            .cornerRadius(.ArcSelectable.cornerRadius)
+            .cornerRadius(.arcCornerRadius)
             .overlay(
-                RoundedRectangle(cornerRadius: .ArcSelectable.cornerRadius)
+                RoundedRectangle(cornerRadius: .arcCornerRadius)
                     .strokeBorder(
-                        isSelected ? Color.arcRed : Color.arcBorderGray, lineWidth: .ArcSelectable.border)
+                        isSelected ? Color.arcRed : Color.arcBorderGray, lineWidth: .arcCornerRadius)
             )
         }
     }
