@@ -17,4 +17,11 @@ extension FigmaShadow {
         blur: 10,
         color: .arcBlack.opacity(0.15)
     )
+
+    static let arcLightContainer = FigmaShadow(
+        x: 0,
+        y: 0,
+        blur: 4,
+        color: .arcBlack.opacity(0.15)
+    )
 }
