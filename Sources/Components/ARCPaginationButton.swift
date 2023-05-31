@@ -1,5 +1,5 @@
 //
-//  ARCNavigationButton.swift
+//  ARCPaginationButton.swift
 //  ArcUI
 //
 //  Created by Vlad Bibire on 30/05/2023.
@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct ARCNavigationButton: View {
+struct ARCPaginationButton: View {
 
     public var title: String
     public var onTap: () -> Void
@@ -31,13 +31,13 @@ struct ARCNavigationButton: View {
                 Spacer()
                 isEnabled ? Image.arcRoundedRightChevron : Image.arcRoundedRightChevronDisabled
             }
-            .padding(EdgeInsets.arcNavigationButton)
+            .padding(EdgeInsets.arcPaginationButton)
             .frame(maxWidth: .infinity)
             .background(Color.arcWhite)
             .cornerRadius(.arcCornerRadius)
             .overlay(
                 RoundedRectangle(cornerRadius: .arcCornerRadius)
-                    .strokeBorder(Color.arcLightGray, lineWidth: .ArcNavigationButton.border)
+                    .strokeBorder(Color.arcLightGray, lineWidth: .ArcPaginationButton.border)
             )
             .shadow(.arcLightContainer)
         }
@@ -68,12 +68,12 @@ struct ARCNavigationButtonStyleView: View {
     }
 }
 
-struct ARCNavigationButton_Previews: PreviewProvider {
+struct ARCPaginationButton_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
             HStack(spacing: 12) {
-                ARCNavigationButton(title: "toolkit", onTap: {}).disabled(true)
-                ARCNavigationButton(title: "your to-dos", onTap: {})
+                ARCPaginationButton(title: "toolkit", onTap: {}).disabled(true)
+                ARCPaginationButton(title: "your to-dos", onTap: {})
             }
         }
         .padding(.horizontal, .arcHorizontalPadding)
