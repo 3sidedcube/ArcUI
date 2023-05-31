@@ -11,11 +11,11 @@ import SwiftUI
 public struct ARCProgressBar: View {
 
     public var total: Int
-    public var progress: Int
+    public var progress: Float
 
     public init(
         total: Int,
-        progress: Int
+        progress: Float
     ) {
         self.total = total
         self.progress = progress
@@ -24,14 +24,24 @@ public struct ARCProgressBar: View {
     public var body: some View {
         HStack(spacing: .ArcProgressBar.spacing) {
             ForEach(0..<total, id: \.self) { current in
+                let isFilledCapsule = Float(current) < progress
+                let leftOver = progress - Float(current)
+                let isPartiallyFilled = leftOver < 1
+                let partiallyDevidedBy = 1 / (1 - (1 - leftOver))
+
                 ZStack(alignment: .leading) {
                     Capsule().fill(Color.arcPeach)
-                    if current < progress {
+                    if isFilledCapsule {
                         Capsule().fill(Color.arcRed)
-                            .frame(width: .ArcProgressBar.caspuleWidth, height: .ArcProgressBar.capsuleHeight)
+                            .frame(
+                                width: isPartiallyFilled ? .ArcProgressBar.caspuleWidth / CGFloat(partiallyDevidedBy) : .ArcProgressBar.caspuleWidth,
+                                height: .ArcProgressBar.capsuleHeight
+                            )
                     }
                 }
                 .frame(width: .ArcProgressBar.caspuleWidth, height: .ArcProgressBar.capsuleHeight)
+
+
             }
         }
         .frame(maxWidth: .infinity)
@@ -40,6 +50,10 @@ public struct ARCProgressBar: View {
 
 struct ARCProgressBar_Previews: PreviewProvider {
     static var previews: some View {
-        ARCProgressBar(total: 5, progress: 2)
+        VStack(spacing: 40) {
+            ARCProgressBar(total: 5, progress: 3)
+            ARCProgressBar(total: 5, progress: 3.5)
+            ARCProgressBar(total: 5, progress: 3.75)
+        }
     }
 }
