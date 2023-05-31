@@ -12,24 +12,27 @@ public struct ARCImageCard: View {
 
     public var title: String
     public var subtitle: String
+    public var footerTitle: String
     public var image: Image
     public var onTap: () -> Void
 
     init(
         title: String,
         subtitle: String,
+        footerTitle: String,
         image: Image,
         onTap: @escaping () -> Void
     ) {
         self.title = title
         self.subtitle = subtitle
+        self.footerTitle = footerTitle
         self.image = image
         self.onTap = onTap
     }
 
     public var body: some View {
         Button(action: onTap) {
-            VStack(spacing: 0) {
+            VStack(alignment: .leading, spacing: 0) {
                 // Image
                 image
                     .resizable()
@@ -53,14 +56,14 @@ public struct ARCImageCard: View {
                     alignment: .bottom
                 )
                 // Footer
-                HStack(alignment: .center, spacing: 0) {
-                    Text("View Goal")
+                HStack(spacing: 0) {
+                    Text(footerTitle)
                         .style(.arcH4)
-                    Spacer()
+                        .frame(maxWidth: .infinity)
                     Image.arcRoundedRightChevron
                 }
+                .multilineTextAlignment(.leading)
                 .padding(EdgeInsets.arcImageCardFooter)
-                .frame(maxWidth: .infinity, alignment: .leading)
             }
             .background(Color.arcWhite)
             .cornerRadius(.arcCornerRadius)
@@ -73,7 +76,7 @@ public struct ARCImageCard: View {
 struct ARCImageCard_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
-            ARCImageCard(title: "Build your evacuation plan", subtitle: "2/3 Complete", image: Image.arcImageCardPreview, onTap: {})
+            ARCImageCard(title: "Build your evacuation plan", subtitle: "2/3 Complete", footerTitle: "View Goal", image: Image.arcImageCardPreview, onTap: {})
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .padding(.arcHorizontalPadding)
