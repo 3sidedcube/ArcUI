@@ -114,6 +114,7 @@ struct ARCProgressBar_Previews: PreviewProvider {
                 ARCProgressBar(total: total, progress: 1.25, capsuleWidth: capsuleWidth, capsuleHeight: capsuleHeight, emptyColor: Color.arcDarkGray, filledColor: Color.arcBlack)
             }
             .padding(.arcHorizontalPadding)
+            .frame(maxHeight: .infinity)
         }
     }
 }
