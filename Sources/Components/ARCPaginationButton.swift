@@ -41,28 +41,16 @@ struct ARCPaginationButton: View {
             )
             .shadow(.arcLightContainer)
         }
-        .buttonStyle(ARCNavigationButtonStyle())
+        .buttonStyle(ARCPaginationButtonStyle())
     }
 }
 
 
-// MARK: - ARCNavigationButtonStyle()
-
-struct ARCNavigationButtonStyle: ButtonStyle {
-    func makeBody(configuration: Self.Configuration) -> some View {
-        ARCNavigationButtonStyleView(configuration: configuration)
-    }
-}
-
-// MARK: - ARCNavigationButtonStyleView
-
-// Overwrite .disabled() reduced opacity
-struct ARCNavigationButtonStyleView: View {
+// MARK: - ARCPaginationButtonStyle
+struct ARCPaginationButtonStyle: ButtonStyle {
     @Environment(\.isEnabled) var isEnabled
-    let configuration: ARCNavigationButtonStyle.Configuration
-
-    var body: some View {
-        return configuration.label
+    func makeBody(configuration: Self.Configuration) -> some View {
+        configuration.label
             .foregroundColor(isEnabled ? .arcBlack : .arcDarkGray)
             .opacity(configuration.isPressed ? 0.5 : 1.0)
     }
