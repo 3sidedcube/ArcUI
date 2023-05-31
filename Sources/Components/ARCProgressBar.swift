@@ -12,17 +12,23 @@ public struct ARCProgressBar: View {
 
     public var total: Int
     public var progress: Float
+    public var capsuleWidth: CGFloat
+    public var capsuleHeight: CGFloat
     public var emptyColor: Color
     public var filledColor: Color
 
     public init(
         total: Int,
         progress: Float,
+        capsuleWidth: CGFloat,
+        capsuleHeight: CGFloat,
         emptyColor: Color = Color.arcPeach,
         filledColor: Color = Color.arcRed
     ) {
         self.total = total
         self.progress = progress
+        self.capsuleWidth = capsuleWidth
+        self.capsuleHeight = capsuleHeight
         self.emptyColor = emptyColor
         self.filledColor = filledColor
     }
@@ -30,7 +36,14 @@ public struct ARCProgressBar: View {
     public var body: some View {
         HStack(spacing: .ArcProgressBar.spacing) {
             ForEach(0..<total, id: \.self) { current in
-                CapsuleView(current: current, progress: progress, emptyColor: emptyColor, filledColor: filledColor)
+                CapsuleView(
+                    current: current,
+                    progress: progress,
+                    capsuleWidth: capsuleWidth,
+                    capsuleHeight: capsuleHeight,
+                    emptyColor: emptyColor,
+                    filledColor: filledColor
+                )
             }
         }
         .frame(maxWidth: .infinity)
@@ -43,6 +56,8 @@ public struct ARCProgressBar: View {
 struct CapsuleView: View {
     let current: Int
     let progress: Float
+    let capsuleWidth: CGFloat
+    let capsuleHeight: CGFloat
     let emptyColor: Color
     let filledColor: Color
 
@@ -63,7 +78,8 @@ struct CapsuleView: View {
 
     /// Calucate by how much last pilled needs to be divided by
     var partiallyDividedBy: Float {
-        1 / (1 - (1 - leftOver))
+        guard leftOver > 0 else { return 1 }
+        return 1 / (1 - (1 - leftOver))
     }
 
     var body: some View {
@@ -72,12 +88,12 @@ struct CapsuleView: View {
             if isFilledCapsule {
                 Capsule().fill(filledColor)
                     .frame(
-                        width: isPartiallyFilled ? .ArcProgressBar.caspuleWidth / CGFloat(partiallyDividedBy) : .ArcProgressBar.caspuleWidth,
-                        height: .ArcProgressBar.capsuleHeight
+                        width: isPartiallyFilled ? capsuleWidth / CGFloat(partiallyDividedBy) : capsuleWidth,
+                        height: capsuleHeight
                     )
             }
         }
-        .frame(width: .ArcProgressBar.caspuleWidth, height: .ArcProgressBar.capsuleHeight)
+        .frame(width: capsuleWidth, height: capsuleHeight)
     }
 }
 
@@ -85,11 +101,19 @@ struct CapsuleView: View {
 
 struct ARCProgressBar_Previews: PreviewProvider {
     static var previews: some View {
-        VStack(spacing: 40) {
-            ARCProgressBar(total: 5, progress: 1.25)
-            ARCProgressBar(total: 5, progress: 3.5)
-            ARCProgressBar(total: 5, progress: 2.75)
-            ARCProgressBar(total: 5, progress: 1.25, emptyColor: Color.arcDarkGray, filledColor: Color.arcBlack)
+        GeometryReader { reader in
+            let total: Int = 4
+            let capsuleWidth = (reader.size.width / CGFloat(total)) - .arcHorizontalPadding
+            let capsuleHeight = CGFloat.ArcProgressBar.capsuleHeight
+
+            VStack(spacing: 20) {
+                ARCProgressBar(total: total, progress: 2.5, capsuleWidth: capsuleWidth, capsuleHeight: capsuleHeight)
+                ARCProgressBar(total: total, progress: 3.5, capsuleWidth: capsuleWidth, capsuleHeight: capsuleHeight)
+                ARCProgressBar(total: total, progress: 9.75, capsuleWidth: capsuleWidth, capsuleHeight: capsuleHeight)
+                ARCProgressBar(total: total, progress: 1.25, capsuleWidth: capsuleWidth, capsuleHeight: capsuleHeight, emptyColor: Color.arcDarkGray, filledColor: Color.arcBlack)
+            }
+            .padding(.arcHorizontalPadding)
+            .frame(maxHeight: .infinity)
         }
     }
 }

@@ -10,26 +10,29 @@ import SwiftUI
 
 public struct ARCImageCard: View {
 
-    public var title: String;
-    public var subtitle: String;
-    public var image: Image;
-    public var onTap: () -> Void;
+    public var title: String
+    public var subtitle: String
+    public var footerTitle: String
+    public var image: Image
+    public var onTap: () -> Void
 
     init(
         title: String,
         subtitle: String,
+        footerTitle: String,
         image: Image,
         onTap: @escaping () -> Void
     ) {
         self.title = title
         self.subtitle = subtitle
+        self.footerTitle = footerTitle
         self.image = image
         self.onTap = onTap
     }
 
     public var body: some View {
         Button(action: onTap) {
-            VStack {
+            VStack(alignment: .leading, spacing: 0) {
                 // Image
                 image
                     .resizable()
@@ -40,10 +43,12 @@ public struct ARCImageCard: View {
                 VStack(alignment: .leading, spacing: 8) {
                     Text(title)
                         .style(.arcH3)
+                        .foregroundColor(.arcBlack)
                     Text(subtitle)
                         .style(.arcH4)
                         .foregroundColor(.arcDarkGray)
                 }
+                .foregroundColor(.arcWhite)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.ArcImageCard.padding)
                 .overlay(
@@ -53,14 +58,14 @@ public struct ARCImageCard: View {
                     alignment: .bottom
                 )
                 // Footer
-                HStack(alignment: .center, spacing: 0) {
-                    Text("View Goal")
+                HStack(spacing: 0) {
+                    Text(footerTitle)
                         .style(.arcH4)
-                    Spacer()
+                        .frame(maxWidth: .infinity, alignment: .leading)
                     Image.arcRoundedRightChevron
                 }
+                .multilineTextAlignment(.leading)
                 .padding(EdgeInsets.arcImageCardFooter)
-                .frame(maxWidth: .infinity, alignment: .leading)
             }
             .background(Color.arcWhite)
             .cornerRadius(.arcCornerRadius)

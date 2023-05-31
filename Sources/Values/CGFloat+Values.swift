@@ -49,12 +49,11 @@ public extension CGFloat {
 
     struct ArcImageCard {
         static let padding: CGFloat = 16
-        static let footerBottomPadding: CGFloat = 18
-        static let footerTopPadding: CGFloat = 12
+        static let footerVerticalPadding: CGFloat = 18
         static let imageHeight: CGFloat = 140
     }
 
-    struct ArcNavigationButton {
+    struct ArcPaginationButton {
         static let padding: CGFloat = 14
         static let trailingPadding: CGFloat = 12
         static let border: CGFloat = 1
@@ -107,16 +106,16 @@ extension EdgeInsets {
     )
 
     static let arcImageCardFooter = EdgeInsets(
-        top: .ArcImageCard.footerTopPadding,
+        top: .ArcImageCard.footerVerticalPadding,
         leading: .ArcImageCard.padding,
-        bottom: .ArcImageCard.footerBottomPadding,
+        bottom: .ArcImageCard.footerVerticalPadding,
         trailing: .ArcImageCard.padding
     )
 
-    static let arcNavigationButton = EdgeInsets(
-        top: .ArcNavigationButton.padding,
-        leading: .ArcNavigationButton.padding,
-        bottom: .ArcNavigationButton.padding,
-        trailing: .ArcNavigationButton.trailingPadding
+    static let arcPaginationButton = EdgeInsets(
+        top: .ArcPaginationButton.padding,
+        leading: .ArcPaginationButton.padding,
+        bottom: .ArcPaginationButton.padding,
+        trailing: .ArcPaginationButton.trailingPadding
     )
 }

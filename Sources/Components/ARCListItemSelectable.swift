@@ -25,12 +25,12 @@ public struct ARCListItemSelectable: View {
     }
 
     var image: Image {
-        isSelected ? Image.arcFilledRoundedCheckbox : Image.arcEmptyRoundedCheckbox
+        isSelected ? .arcFilledRoundedCheckbox : .arcEmptyRoundedCheckbox
     }
 
     public var body: some View {
         Button(action: onTap) {
-            HStack {
+            HStack(spacing: 0) {
                 Text(title.capitalized)
                     .style(.arcH4)
                     .foregroundColor(.arcBlack)
