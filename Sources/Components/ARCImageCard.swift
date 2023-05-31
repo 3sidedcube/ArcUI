@@ -47,6 +47,7 @@ public struct ARCImageCard: View {
                         .style(.arcH4)
                         .foregroundColor(.arcDarkGray)
                 }
+                .foregroundColor(Color.arcWhite)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.ArcImageCard.padding)
                 .overlay(
