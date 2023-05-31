@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "Arc-Empty-Rounded-Checkbox.svg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

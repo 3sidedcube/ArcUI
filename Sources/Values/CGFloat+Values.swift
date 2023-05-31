@@ -30,6 +30,13 @@ public extension CGFloat {
         static let labelLeadingPadding: CGFloat = 6
     }
 
+    struct ArcListItemSelectable {
+        static let verticalPadding: CGFloat = 18
+        static let horizontalPadding: CGFloat = 24
+        static let checkboxHorizontalPadding: CGFloat = 24
+        static let minHeight : CGFloat = 75
+    }
+
     struct ArcLabel {
         static let verticalPadding: CGFloat = 4
         static let horizontalPadding: CGFloat = 8
@@ -83,6 +90,13 @@ extension EdgeInsets {
         leading: .ArcListItem.leadingPadding,
         bottom: .ArcListItem.verticalPaddingSubtitle,
         trailing: .ArcListItem.trailingPadding
+    )
+
+    static let arcListItemSelectable = EdgeInsets(
+        top: .ArcListItemSelectable.verticalPadding,
+        leading: .ArcListItemSelectable.horizontalPadding,
+        bottom: .ArcListItemSelectable.verticalPadding,
+        trailing: .ArcListItemSelectable.horizontalPadding
     )
 
     static let arcLabel = EdgeInsets(
