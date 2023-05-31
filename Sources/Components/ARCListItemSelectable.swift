@@ -40,7 +40,7 @@ public struct ARCListItemSelectable: View {
                 image
                     .padding(.horizontal, .ArcListItemSelectable.checkboxHorizontalPadding)
             }
-            .frame(minHeight: 75)
+            .frame(minHeight: .ArcListItemSelectable.minHeight)
             .background(Color.arcWhite)
             .overlay(
                 Rectangle()

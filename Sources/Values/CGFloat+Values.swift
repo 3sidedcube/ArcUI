@@ -34,6 +34,7 @@ public extension CGFloat {
         static let verticalPadding: CGFloat = 18
         static let horizontalPadding: CGFloat = 24
         static let checkboxHorizontalPadding: CGFloat = 24
+        static let minHeight : CGFloat = 75
     }
 
     struct ArcLabel {
