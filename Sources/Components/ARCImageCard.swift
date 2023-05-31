@@ -43,11 +43,12 @@ public struct ARCImageCard: View {
                 VStack(alignment: .leading, spacing: 8) {
                     Text(title)
                         .style(.arcH3)
+                        .foregroundColor(.arcBlack)
                     Text(subtitle)
                         .style(.arcH4)
                         .foregroundColor(.arcDarkGray)
                 }
-                .foregroundColor(Color.arcWhite)
+                .foregroundColor(.arcWhite)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.ArcImageCard.padding)
                 .overlay(
