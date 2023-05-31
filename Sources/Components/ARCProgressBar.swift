@@ -102,7 +102,7 @@ struct CapsuleView: View {
 struct ARCProgressBar_Previews: PreviewProvider {
     static var previews: some View {
         GeometryReader { reader in
-            let total: Int = 8
+            let total: Int = 4
 
             let capsuleWidth = (reader.size.width / CGFloat(total)) - .arcHorizontalPadding
             let capsuleHeight = CGFloat.ArcProgressBar.capsuleHeight
