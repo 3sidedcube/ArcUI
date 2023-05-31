@@ -61,7 +61,7 @@ public struct ARCImageCard: View {
                 HStack(spacing: 0) {
                     Text(footerTitle)
                         .style(.arcH4)
-                        .frame(maxWidth: .infinity)
+                        .frame(maxWidth: .infinity, alignment: .leading)
                     Image.arcRoundedRightChevron
                 }
                 .multilineTextAlignment(.leading)
