@@ -52,6 +52,12 @@ public extension CGFloat {
         static let trailingPadding: CGFloat = 12
         static let border: CGFloat = 1
     }
+
+    struct ArcProgressBar {
+        static let caspuleWidth: CGFloat = 55
+        static let capsuleHeight: CGFloat = 10
+        static let spacing: CGFloat = 8
+    }
 }
 
 // MARK: - EdgeInsets + Values
