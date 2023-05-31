@@ -10,10 +10,10 @@ import SwiftUI
 
 public struct ARCImageCard: View {
 
-    public var title: String;
-    public var subtitle: String;
-    public var image: Image;
-    public var onTap: () -> Void;
+    public var title: String
+    public var subtitle: String
+    public var image: Image
+    public var onTap: () -> Void
 
     init(
         title: String,
