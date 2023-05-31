@@ -26,7 +26,7 @@ struct ARCPaginationButton: View {
     var body: some View {
         Button(action: onTap) {
             HStack {
-                Text(title.uppercased())
+                Text(title)
                     .style(.arcButton)
                 Spacer()
                 isEnabled ? Image.arcRoundedRightChevron : Image.arcRoundedRightChevronDisabled
@@ -72,8 +72,8 @@ struct ARCPaginationButton_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
             HStack(spacing: 12) {
-                ARCPaginationButton(title: "toolkit", onTap: {}).disabled(true)
-                ARCPaginationButton(title: "your to-dos", onTap: {})
+                ARCPaginationButton(title: "toolkit".uppercased(), onTap: {}).disabled(true)
+                ARCPaginationButton(title: "your to-dos".uppercased(), onTap: {})
             }
         }
         .padding(.horizontal, .arcHorizontalPadding)
