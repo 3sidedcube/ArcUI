@@ -63,7 +63,8 @@ struct CapsuleView: View {
 
     /// Calucate by how much last pilled needs to be divided by
     var partiallyDividedBy: Float {
-        1 / (1 - (1 - leftOver))
+        guard leftOver > 0 else { return 1 }
+        return 1 / (1 - (1 - leftOver))
     }
 
     var body: some View {
