@@ -98,6 +98,7 @@ struct ARCSelectable_Previews: PreviewProvider {
             )
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .padding(.horizontal, .arcHorizontalPadding)
         .background(Color.arcLightGray)
     }
 }

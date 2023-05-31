@@ -86,7 +86,7 @@ struct CapsuleView: View {
 struct ARCProgressBar_Previews: PreviewProvider {
     static var previews: some View {
         VStack(spacing: 40) {
-            ARCProgressBar(total: 5, progress: 2)
+            ARCProgressBar(total: 5, progress: 1.25)
             ARCProgressBar(total: 5, progress: 3.5)
             ARCProgressBar(total: 5, progress: 2.75)
             ARCProgressBar(total: 5, progress: 1.25, emptyColor: Color.arcDarkGray, filledColor: Color.arcBlack)

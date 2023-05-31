@@ -72,8 +72,9 @@ public struct ARCImageCard: View {
 
 struct ARCImageCard_Previews: PreviewProvider {
     static var previews: some View {
-        VStack {
+        VStack(spacing: 24) {
             ARCImageCard(title: "Build your evacuation plan", subtitle: "2/3 Complete", image: Image.arcImageCardPreview, onTap: {})
+            ARCImageCard(title: "This is a very long title indeed that won't end very soon and will try to break the UI", subtitle: "This is also a very long long description that will not end very soon and will try to break the UI.", image: Image.arcImageCardPreview, onTap: {})
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .padding(.arcHorizontalPadding)

@@ -35,7 +35,7 @@ struct ARCLabel_Previews: PreviewProvider {
         VStack {
             ARCLabel(title: "New")
             ARCLabel(title: "New", color: Color.arcBlue)
-            ARCLabel(title: "New", color: Color.arcBackground, textColor: Color.arcBlack)
+            ARCLabel(title: "New", color: Color.arcDarkGray, textColor: Color.arcLightGray)
         }
     }
 }
