@@ -28,7 +28,7 @@ struct ARCPaginationButton: View {
             HStack {
                 Text(title)
                     .style(.arcButton)
-                Spacer()
+                    .frame(maxWidth: .infinity, alignment: .leading)
                 isEnabled ? Image.arcRoundedRightChevron : Image.arcRoundedRightChevronDisabled
             }
             .padding(EdgeInsets.arcPaginationButton)
