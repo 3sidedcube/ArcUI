@@ -29,7 +29,7 @@ public struct ARCImageCard: View {
 
     public var body: some View {
         Button(action: onTap) {
-            VStack {
+            VStack(spacing: 0) {
                 // Image
                 image
                     .resizable()
