@@ -18,7 +18,7 @@ let package = Package(
     dependencies: [
         .package(
             url: "https://github.com/3sidedcube/cubefoundation-ios.git",
-            branch: "feature/system-font"
+            branch: "develop"
         )
     ],
     targets: [
@@ -35,7 +35,10 @@ let package = Package(
                 )
             ],
             path: "Sources",
-            resources: [.process("Resources/ArcMedia.xcasset"), .process("Resources/ArcPreviewMedia.xcasset")]
+            resources: [
+                .process("Resources/ArcMedia.xcasset"),
+                .process("Resources/ArcPreviewMedia.xcasset")
+            ]
         ),
         .testTarget(
             name: "ArcUITests",
