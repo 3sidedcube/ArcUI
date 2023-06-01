@@ -9,13 +9,29 @@
 import SwiftUI
 
 public extension Image {
-    static let arcRoundedRightChevron = Image(uiImage: UIImage(named: "Arc-Rounded-Right-Chevron", in: .module, with: nil)!)
-    static let arcRoundedRightChevronDisabled = Image(uiImage: UIImage(named: "Arc-Rounded-Right-Chevron-Disabled", in: .module, with: nil)!)
-    static let arcListItemLeading = Image(uiImage: UIImage(named: "Arc-List-Item-Leading", in: .module, with: nil)!)
-    static let arcEmptySelectable = Image(uiImage: UIImage(named: "Arc-Empty-Selectable", in: .module, with: nil)!)
-    static let arcFilledRadio = Image(uiImage: UIImage(named: "Arc-Filled-Radio", in: .module, with: nil)!)
-    static let arcFilledCheckbox = Image(uiImage: UIImage(named: "Arc-Filled-Checkbox", in: .module, with: nil)!)
-    static let arcImageCardPreview = Image(uiImage: UIImage(named: "Arc-Image-Card-Preview", in: .module, with: nil)!)
-    static let arcFilledRoundedCheckbox = Image(uiImage: UIImage(named: "Arc-Filled-Rounded-Checkbox", in: .module, with: nil)!)
-    static let arcEmptyRoundedCheckbox = Image(uiImage: UIImage(named: "Arc-Empty-Rounded-Checkbox", in: .module, with: nil)!)
+
+    static let arcRoundedRightChevron = Image(media: "Arc-Rounded-Right-Chevron")
+    static let arcRoundedRightChevronDisabled = Image(media: "Arc-Rounded-Right-Chevron-Disabled")
+    static let arcListItemLeading = Image(media: "Arc-List-Item-Leading")
+    static let arcEmptySelectable = Image(media: "Arc-Empty-Selectable")
+    static let arcFilledRadio = Image(media: "Arc-Filled-Radio")
+    static let arcFilledCheckbox = Image(media: "Arc-Filled-Checkbox")
+    static let arcImageCardPreview = Image(media: "Arc-Image-Card-Preview")
+    static let arcFilledRoundedCheckbox = Image(media: "Arc-Filled-Rounded-Checkbox")
+    static let arcEmptyRoundedCheckbox = Image(media: "Arc-Empty-Rounded-Checkbox")
+}
+
+// MARK: - Extensions
+
+private extension Image {
+
+    /// Initialize from module
+    /// - Parameter media: Resource name
+    init(media: String) {
+        let uiImage = UIImage(named: media, in: .module, with: nil)
+        guard let uiImage else {
+            fatalError("Failed to load module \(Image.self) with name: '\(media)'")
+        }
+        self.init(uiImage: uiImage)
+    }
 }

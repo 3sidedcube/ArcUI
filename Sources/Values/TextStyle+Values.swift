@@ -14,7 +14,7 @@ public extension TextStyle {
     // MARK: Headline
 
     static let arcH1 = TextStyle(
-        font: .system,
+        .system,
         weight: 800,
         size: 36,
         lineHeight: 44,
@@ -23,7 +23,7 @@ public extension TextStyle {
     )
 
     static let arcH2 = TextStyle(
-        font: .system,
+        .system,
         weight: 800,
         size: 21,
         lineHeight: 28,
@@ -32,7 +32,7 @@ public extension TextStyle {
     )
 
     static let arcH3 = TextStyle(
-        font: .system,
+        .system,
         weight: 800,
         size: 18,
         lineHeight: 20,
@@ -41,7 +41,7 @@ public extension TextStyle {
     )
 
     static let arcH4 = TextStyle(
-        font: .system,
+        .system,
         weight: 600,
         size: 15,
         lineHeight: 20,
@@ -52,7 +52,7 @@ public extension TextStyle {
     // MARK: Sub
 
     static let arcSub1 = TextStyle(
-        font: .system,
+        .system,
         weight: 500,
         size: 14,
         lineHeight: 16,
@@ -64,7 +64,7 @@ public extension TextStyle {
     // MARK: Body
 
     static let arcBody1 = TextStyle(
-        font: .system,
+        .system,
         weight: 400,
         size: 13,
         lineHeight: 16,
@@ -73,7 +73,7 @@ public extension TextStyle {
     )
 
     static let arcBody2 = TextStyle(
-        font: .system,
+        .system,
         weight: 400,
         size: 13,
         lineHeight: 20,
@@ -83,7 +83,7 @@ public extension TextStyle {
 
     // MARK: Overline
     static let arcOverline = TextStyle(
-        font: .system,
+        .system,
         weight: 700,
         size: 12,
         lineHeight: 20,
@@ -94,7 +94,7 @@ public extension TextStyle {
     // MARK: Button
 
     static let arcButton = TextStyle(
-        font: .system,
+        .system,
         weight: 800,
         size: 13,
         lineHeight: 16,
@@ -105,7 +105,7 @@ public extension TextStyle {
     // MARK: Label
 
     static let arcLabel = TextStyle(
-        font: .system,
+        .system,
         weight: 700,
         size: 12,
         lineHeight: 14,
