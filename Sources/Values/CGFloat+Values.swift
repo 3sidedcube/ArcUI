@@ -69,7 +69,6 @@ public extension CGFloat {
 
     struct ArcProgressBar {
 
-        static let capsuleWidth: CGFloat = 55
         static let capsuleHeight: CGFloat = 10
         static let spacing: CGFloat = 8
     }
