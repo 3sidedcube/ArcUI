@@ -14,13 +14,15 @@ public extension CGFloat {
     static let arcHorizontalPadding: CGFloat = 20
     static let arcCornerRadius: CGFloat = 6
     static let arcBorder: CGFloat = 2
-    
+
     struct ArcButton {
+
         static let border: CGFloat = 1
         static let padding: CGFloat = 14
     }
 
     struct ArcListItem {
+
         static let spacing: CGFloat = 4
         static let chevronPadding: CGFloat = 24
         static let leadingPadding: CGFloat = 25
@@ -31,37 +33,43 @@ public extension CGFloat {
     }
 
     struct ArcListItemSelectable {
+
         static let verticalPadding: CGFloat = 18
         static let horizontalPadding: CGFloat = 24
         static let checkboxHorizontalPadding: CGFloat = 24
-        static let minHeight : CGFloat = 75
+        static let minHeight: CGFloat = 75
     }
 
     struct ArcLabel {
+
         static let verticalPadding: CGFloat = 4
         static let horizontalPadding: CGFloat = 8
     }
 
     struct ArcSelectable {
+
         static let padding: CGFloat = 12
         static let largePadding: CGFloat = 20
         static let spacing: CGFloat = 16
     }
 
     struct ArcImageCard {
+
         static let padding: CGFloat = 16
         static let footerVerticalPadding: CGFloat = 18
         static let imageHeight: CGFloat = 140
     }
 
     struct ArcPaginationButton {
+
         static let padding: CGFloat = 14
         static let trailingPadding: CGFloat = 12
         static let border: CGFloat = 1
     }
 
     struct ArcProgressBar {
-        static let caspuleWidth: CGFloat = 55
+
+        static let capsuleWidth: CGFloat = 55
         static let capsuleHeight: CGFloat = 10
         static let spacing: CGFloat = 8
     }
@@ -69,7 +77,7 @@ public extension CGFloat {
 
 // MARK: - EdgeInsets + Values
 
-extension EdgeInsets {
+public extension EdgeInsets {
 
     static let arcStickyContainer = EdgeInsets(
         top: .arcVerticalPadding,

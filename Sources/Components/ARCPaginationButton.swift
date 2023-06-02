@@ -45,7 +45,6 @@ struct ARCPaginationButton: View {
     }
 }
 
-
 // MARK: - ARCPaginationButtonStyle
 struct ARCPaginationButtonStyle: ButtonStyle {
     @Environment(\.isEnabled) var isEnabled

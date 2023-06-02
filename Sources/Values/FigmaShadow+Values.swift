@@ -9,7 +9,7 @@
 import SwiftUI
 import CubeFoundationSwiftUI
 
-extension FigmaShadow {
+public extension FigmaShadow {
 
     static let arcContainer = FigmaShadow(
         x: 0,

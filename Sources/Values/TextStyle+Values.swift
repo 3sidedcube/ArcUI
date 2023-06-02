@@ -60,7 +60,6 @@ public extension TextStyle {
         underline: false
     )
 
-
     // MARK: Body
 
     static let arcBody1 = TextStyle(

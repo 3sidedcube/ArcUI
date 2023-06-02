@@ -14,6 +14,11 @@ public struct StickyBottom<Bottom: View>: ViewModifier {
     /// Make `Bottom` view
     @ViewBuilder public var bottom: () -> Bottom
 
+    /// Public memberwise initializer
+    public init(@ViewBuilder bottom: @escaping () -> Bottom) {
+        self.bottom = bottom
+    }
+
     public func body(content: Content) -> some View {
         content
             .safeAreaInset(edge: .bottom) {

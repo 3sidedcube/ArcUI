@@ -18,13 +18,28 @@ public struct StickyButton: ViewModifier {
     public var style: ARCButton.Style
 
     /// Is the button enabled
-    public var isEnabled = true
+    public var isEnabled: Bool
 
     /// Is the button loading
-    public var isLoading = false
+    public var isLoading: Bool
 
     /// On button tapped
     public var onTap: () -> Void
+
+    /// Public memberwise initializer
+    public init(
+        title: String,
+        style: ARCButton.Style,
+        isEnabled: Bool = true,
+        isLoading: Bool = false,
+        onTap: @escaping () -> Void
+    ) {
+        self.title = title
+        self.style = style
+        self.isEnabled = isEnabled
+        self.isLoading = isLoading
+        self.onTap = onTap
+    }
 
     public func body(content: Content) -> some View {
         content.modifier(

@@ -63,7 +63,7 @@ public struct ARCButton: View {
             .cornerRadius(.arcCornerRadius)
             .overlay(
                 RoundedRectangle(cornerRadius: .arcCornerRadius)
-                    .strokeBorder(buttonStyle.borderColor, lineWidth: .arcBorder) 
+                    .strokeBorder(buttonStyle.borderColor, lineWidth: .arcBorder)
             )
         }
     }

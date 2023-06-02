@@ -50,7 +50,6 @@ public struct ARCProgressBar: View {
     }
 }
 
-
 // MARK: Capsule View
 
 struct CapsuleView: View {

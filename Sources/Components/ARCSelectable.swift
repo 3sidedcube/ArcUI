@@ -9,6 +9,7 @@
 import SwiftUI
 
 public struct ARCSelectable: View {
+
     public enum Control {
         case radio
         case checkbox
@@ -60,7 +61,6 @@ public struct ARCSelectable: View {
         }
     }
 }
-
 
 // Mark : - Preview
 struct ARCSelectable_Previews: PreviewProvider {
