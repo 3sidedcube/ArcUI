@@ -21,7 +21,7 @@ public struct ARCSelectable: View {
     public var isFullWidth: Bool
     public var onTap: () -> Void
 
-    init (
+    public init(
         title: String,
         type: Control = .radio,
         isSelected: Bool,

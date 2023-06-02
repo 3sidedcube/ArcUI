@@ -14,7 +14,7 @@ public struct ARCListItemSelectable: View {
     public var isSelected: Bool
     public var onTap: () -> Void
 
-    init (
+    public init(
         title: String,
         isSelected: Bool,
         onTap: @escaping () -> Void
