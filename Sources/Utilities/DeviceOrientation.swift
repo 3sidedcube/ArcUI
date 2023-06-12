@@ -8,7 +8,6 @@
 
 #if canImport(UIKit)
 
-import UIKit
 import Combine
 import SwiftUI
 
