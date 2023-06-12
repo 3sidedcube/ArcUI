@@ -47,6 +47,7 @@ import SwiftUI
         orientation = UIDevice.current.orientation
         NotificationCenter.default.publisher(for: UIDevice.orientationDidChangeNotification)
             .compactMap { ($0.object as? UIDevice)?.orientation }
+            .filter { $0 != .faceUp && $0 != .faceDown }
             .assign(to: \.orientation, on: self)
             .store(in: &cancellables)
     }
