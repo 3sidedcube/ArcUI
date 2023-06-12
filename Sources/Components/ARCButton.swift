@@ -63,7 +63,7 @@ public struct ARCButton: View {
                     .opacity(isLoading ? 1 : 0)
             }
             .frame(width: deviceOrientation.isPortrait ? nil : .ArcButton.landscapeWidth)
-            .frame(maxWidth: deviceOrientation.isPortrait ? .infinity : .nil)
+            .frame(maxWidth: deviceOrientation.isPortrait ? .infinity : nil)
             .padding(.ArcButton.padding)
             .background(buttonStyle.backgroundColor)
             .cornerRadius(.arcCornerRadius)
