@@ -11,19 +11,12 @@ import SwiftUI
 /// `View` with sticky button content
 public struct StickyButton: ViewModifier {
 
-    /// Button title text
+    @ObservedObject private var deviceOrientation: DeviceOrientation = .shared
+
     public var title: String
-
-    /// Style of the button
     public var style: ARCButton.Style
-
-    /// Is the button enabled
     public var isEnabled: Bool
-
-    /// Is the button loading
     public var isLoading: Bool
-
-    /// On button tapped
     public var onTap: () -> Void
 
     /// Public memberwise initializer
@@ -47,6 +40,7 @@ public struct StickyButton: ViewModifier {
                 ARCButton(title: title, style: style, onTap: onTap)
                     .disabled(!isEnabled)
                     .loading(isLoading)
+                    .frame(maxWidth: deviceOrientation.isLandscape ? .infinity : nil)
                     .padding(EdgeInsets.arcStickyContainer)
             }
         )
@@ -65,5 +59,6 @@ struct StickyButton_Previews: PreviewProvider {
                 style: .primary,
                 onTap: {}
             ))
+            .previewInterfaceOrientation(.landscapeLeft)
     }
 }

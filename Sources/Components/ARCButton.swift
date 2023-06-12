@@ -62,9 +62,9 @@ public struct ARCButton: View {
                     ))
                     .opacity(isLoading ? 1 : 0)
             }
-            .frame(width: deviceOrientation.isLandscape ? 336 : nil)
+            .frame(width: deviceOrientation.isLandscape ? .ArcButton.landscapeWidth : nil)
             .frame(maxWidth: deviceOrientation.isLandscape ? nil : .infinity)
-            .padding(.vertical, .ArcButton.padding)
+            .padding(.ArcButton.padding)
             .background(buttonStyle.backgroundColor)
             .cornerRadius(.arcCornerRadius)
             .overlay(
