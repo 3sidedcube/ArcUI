@@ -40,7 +40,7 @@ public struct StickyButton: ViewModifier {
                 ARCButton(title: title, style: style, onTap: onTap)
                     .disabled(!isEnabled)
                     .loading(isLoading)
-                    .frame(maxWidth: deviceOrientation.isLandscape ? .infinity : nil)
+                    .frame(maxWidth: deviceOrientation.isPortrait ? nil : .infinity)
                     .padding(EdgeInsets.arcStickyContainer)
             }
         )

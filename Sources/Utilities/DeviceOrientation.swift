@@ -23,16 +23,31 @@ import SwiftUI
     public static let shared = DeviceOrientation()
 
     /// Stored property for whether the device is landscape
-    @Published public private(set) var isLandscape: Bool
+    @Published public private(set) var orientation: UIDeviceOrientation
+
+    /// Shorthand for `isPortrait` of `orientation`
+    public var isPortrait: Bool {
+        orientation.isPortrait
+    }
+
+    /// Shorthand for `isLandscape` of `orientation`
+    public var isLandscape: Bool {
+        orientation.isLandscape
+    }
+
+    /// Shorthand for `isFlat` of `orientation`
+    public var isFlat: Bool {
+        orientation.isFlat
+    }
 
     /// Store publisher cancellables
     private var cancellables = Set<AnyCancellable>()
 
     public init() {
-        isLandscape = UIDevice.current.orientation.isLandscape
+        orientation = UIDevice.current.orientation
         NotificationCenter.default.publisher(for: UIDevice.orientationDidChangeNotification)
-            .compactMap { ($0.object as? UIDevice)?.orientation.isLandscape }
-            .assign(to: \.isLandscape, on: self)
+            .compactMap { ($0.object as? UIDevice)?.orientation }
+            .assign(to: \.orientation, on: self)
             .store(in: &cancellables)
     }
 }
