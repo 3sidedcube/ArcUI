@@ -25,6 +25,7 @@ public struct ARCButton: View {
         case disabled
     }
 
+    @ObservedObject private var deviceOrientation: DeviceOrientation = .shared
     @Environment(\.isLoading) public var isLoading: Bool
     @Environment(\.isEnabled) public var isEnabled: Bool
 
@@ -37,7 +38,11 @@ public struct ARCButton: View {
         isLoading || !isEnabled ? .disabled : style
     }
 
-    public init(title: String, style: Style, onTap: @escaping () -> Void) {
+    public init(
+        title: String,
+        style: Style,
+        onTap: @escaping () -> Void
+    ) {
         self.title = title
         self.style = style
         self.onTap = onTap
@@ -57,8 +62,9 @@ public struct ARCButton: View {
                     ))
                     .opacity(isLoading ? 1 : 0)
             }
-            .frame(maxWidth: .infinity)
-            .padding(.vertical, .ArcButton.padding)
+            .frame(width: deviceOrientation.isPortrait ? nil : .ArcButton.landscapeWidth)
+            .frame(maxWidth: deviceOrientation.isPortrait ? .infinity : nil)
+            .padding(.ArcButton.padding)
             .background(buttonStyle.backgroundColor)
             .cornerRadius(.arcCornerRadius)
             .overlay(
@@ -117,5 +123,6 @@ struct ARCButton_Previews: PreviewProvider {
                 .disabled(true)
         }
         .padding()
+        .previewInterfaceOrientation(.landscapeLeft)
     }
 }

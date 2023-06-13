@@ -19,6 +19,7 @@ public extension CGFloat {
 
         static let border: CGFloat = 1
         static let padding: CGFloat = 14
+        static let landscapeWidth: CGFloat = 336
     }
 
     struct ArcListItem {
