@@ -28,7 +28,7 @@ public struct ARCButton: View {
         case disabled
     }
 
-    @ObservedObject private var deviceOrientation: DeviceOrientation = .shared
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass
     @Environment(\.isLoading) public var isLoading: Bool
     @Environment(\.isEnabled) public var isEnabled: Bool
 
@@ -77,8 +77,8 @@ public struct ARCButton: View {
                     ))
                     .opacity(isLoading ? 1 : 0)
             }
-            .frame(width: deviceOrientation.isPortrait ? nil : .ArcButton.landscapeWidth)
-            .frame(maxWidth: deviceOrientation.isPortrait ? .infinity : nil)
+            .frame(width: horizontalSizeClass == .compact ? nil : .ArcButton.landscapeWidth)
+            .frame(maxWidth: horizontalSizeClass == .compact ? .infinity : nil)
             .padding(.ArcButton.padding)
             .background(buttonStyle.backgroundColor)
             .cornerRadius(.arcCornerRadius)
