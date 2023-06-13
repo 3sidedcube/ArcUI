@@ -21,7 +21,7 @@ public extension CGFloat {
         static let padding: CGFloat = 14
         static let landscapeWidth: CGFloat = 336
         static let iconPadding: CGFloat = 8
-        static let iconSize: CGFloat = 12
+        static let iconSize: CGFloat = 14
     }
 
     struct ArcListItem {

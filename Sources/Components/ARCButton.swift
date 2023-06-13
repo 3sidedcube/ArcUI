@@ -58,10 +58,11 @@ public struct ARCButton: View {
         Button(action: onTap) {
             ZStack {
                 HStack(spacing: 0) {
-                    if let icon = icon {
+                    if let icon {
                         icon
-                            .frame(maxWidth: .ArcButton.iconSize, maxHeight: .ArcButton.iconSize)
+                            .resizable()
                             .scaledToFit()
+                            .frame(size: .ArcButton.iconSize)
                             .padding(.trailing, .ArcButton.iconPadding)
                     }
                     Text(title)
