@@ -101,6 +101,17 @@ public extension TextStyle {
         underline: false
     )
 
+    // MARK: Button Underline
+
+    static let arcButtonUnderline = TextStyle(
+        .system,
+        weight: 600,
+        size: 15,
+        lineHeight: 18,
+        letter: 0.6,
+        underline: true
+    )
+
     // MARK: Label
 
     static let arcLabel = TextStyle(
