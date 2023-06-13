@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct ARCPaginationButton: View {
+public struct ARCPaginationButton: View {
 
     public var title: String
     public var onTap: () -> Void
