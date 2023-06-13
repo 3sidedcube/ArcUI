@@ -15,7 +15,7 @@ struct ARCPaginationButton: View {
 
     @Environment(\.isEnabled) public var isEnabled: Bool
 
-    init(
+    public init(
         title: String,
         onTap: @escaping () -> Void
     ) {
@@ -23,7 +23,7 @@ struct ARCPaginationButton: View {
         self.onTap = onTap
     }
 
-    var body: some View {
+    public var body: some View {
         Button(action: onTap) {
             HStack {
                 Text(title)
