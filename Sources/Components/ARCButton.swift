@@ -142,6 +142,6 @@ struct ARCButton_Previews: PreviewProvider {
             ARCButton(title: "Underline", style: .underline, onTap: {})
         }
         .padding()
-        .previewInterfaceOrientation(.landscapeLeft)
+//        .previewInterfaceOrientation(.landscapeLeft)
     }
 }
