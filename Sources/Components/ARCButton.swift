@@ -21,6 +21,9 @@ public struct ARCButton: View {
         /// Stroked blue
         case secondary
 
+        /// Underline blue
+        case underline
+
         /// Disabled state
         case disabled
     }
@@ -32,6 +35,7 @@ public struct ARCButton: View {
     public var title: String
     public var style: Style
     public var onTap: () -> Void
+    public var icon: Image?
 
     /// Mapped `Style` based on states
     private var buttonStyle: Style {
@@ -41,20 +45,30 @@ public struct ARCButton: View {
     public init(
         title: String,
         style: Style,
+        icon: Image? = nil,
         onTap: @escaping () -> Void
     ) {
         self.title = title
         self.style = style
+        self.icon = icon
         self.onTap = onTap
     }
 
     public var body: some View {
         Button(action: onTap) {
             ZStack {
-                Text(title)
-                    .style(.arcButton)
-                    .foregroundColor(buttonStyle.textColor)
-                    .opacity(isLoading ? 0 : 1)
+                HStack(spacing: 0) {
+                    if let icon = icon {
+                        icon
+                            .frame(maxWidth: .ArcButton.iconSize, maxHeight: .ArcButton.iconSize)
+                            .scaledToFit()
+                            .padding(.trailing, .ArcButton.iconPadding)
+                    }
+                    Text(title)
+                        .style(style == .underline ? .arcButtonUnderline : .arcButton)
+                        .foregroundColor(buttonStyle.textColor)
+                        .opacity(isLoading ? 0 : 1)
+                }
 
                 ProgressView()
                     .progressViewStyle(CircularProgressViewStyle(
@@ -83,6 +97,7 @@ private extension ARCButton.Style {
         switch self {
         case .primary: return .arcRed
         case .secondary: return .clear
+        case .underline: return .clear
         case .disabled: return .arcDarkGray
         }
     }
@@ -91,6 +106,7 @@ private extension ARCButton.Style {
         switch self {
         case .primary: return .clear
         case .secondary: return .arcBlue
+        case .underline: return .clear
         case .disabled: return .clear
         }
     }
@@ -99,6 +115,7 @@ private extension ARCButton.Style {
         switch self {
         case .primary: return .arcWhite
         case .secondary: return .arcBlue
+        case .underline: return .arcBlue
         case .disabled: return .arcWhite
         }
     }
@@ -110,7 +127,7 @@ struct ARCButton_Previews: PreviewProvider {
 
     static var previews: some View {
         VStack {
-            ARCButton(title: "PRIMARY", style: .primary, onTap: {})
+            ARCButton(title: "PRIMARY", style: .primary, icon: Image.arcPlusIcon, onTap: {})
             ARCButton(title: "PRIMARY LOADING", style: .primary, onTap: {})
                 .loading(true)
             ARCButton(title: "PRIMARY DISABLED", style: .primary, onTap: {})
@@ -121,6 +138,7 @@ struct ARCButton_Previews: PreviewProvider {
                 .loading(true)
             ARCButton(title: "SECONDARY DISABLED", style: .secondary, onTap: {})
                 .disabled(true)
+            ARCButton(title: "Underline", style: .underline, onTap: {})
         }
         .padding()
         .previewInterfaceOrientation(.landscapeLeft)

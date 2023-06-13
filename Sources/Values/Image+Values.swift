@@ -19,6 +19,7 @@ public extension Image {
     static let arcImageCardPreview = Image(media: "Arc-Image-Card-Preview")
     static let arcFilledRoundedCheckbox = Image(media: "Arc-Filled-Rounded-Checkbox")
     static let arcEmptyRoundedCheckbox = Image(media: "Arc-Empty-Rounded-Checkbox")
+    static let arcPlusIcon = Image(media: "Arc-Plus-Icon")
 }
 
 // MARK: - Extensions
