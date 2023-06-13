@@ -22,6 +22,14 @@ import SwiftUI
     /// ```
     public static let shared = DeviceOrientation()
 
+    /// `UIDeviceOrientation`s that are published when observed.
+    ///
+    /// Orientations outside of this set are ignored, at time of writing that is:
+    /// `[.faceUp, .faceDown]`.
+    private static let filteredOrientations: Set<UIDeviceOrientation> = [
+        .portrait, .portraitUpsideDown, .landscapeLeft, .landscapeRight
+    ]
+
     /// Stored property for whether the device is landscape
     @Published public private(set) var orientation: UIDeviceOrientation
 
@@ -35,11 +43,6 @@ import SwiftUI
         orientation.isLandscape
     }
 
-    /// Shorthand for `isFlat` of `orientation`
-    public var isFlat: Bool {
-        orientation.isFlat
-    }
-
     /// Store publisher cancellables
     private var cancellables = Set<AnyCancellable>()
 
@@ -47,7 +50,7 @@ import SwiftUI
         orientation = UIDevice.current.orientation
         NotificationCenter.default.publisher(for: UIDevice.orientationDidChangeNotification)
             .compactMap { ($0.object as? UIDevice)?.orientation }
-            .filter { $0 != .faceUp && $0 != .faceDown }
+            .filter { Self.filteredOrientations.contains($0) }
             .assign(to: \.orientation, on: self)
             .store(in: &cancellables)
     }
