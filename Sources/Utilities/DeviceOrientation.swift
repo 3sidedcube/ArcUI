@@ -30,7 +30,7 @@ import SwiftUI
         .portrait, .portraitUpsideDown, .landscapeLeft, .landscapeRight
     ]
 
-    /// Stored property for whether the device is landscape
+    /// Stored property for the last observed orientation of the device
     @Published public private(set) var orientation: UIDeviceOrientation
 
     /// Shorthand for `isPortrait` of `orientation`
