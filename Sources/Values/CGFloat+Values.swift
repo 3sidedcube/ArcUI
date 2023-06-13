@@ -73,6 +73,12 @@ public extension CGFloat {
         static let capsuleHeight: CGFloat = 10
         static let spacing: CGFloat = 8
     }
+
+    struct ArcTitleImageCard {
+        static let imageHeight: CGFloat = 120
+        static let padding: CGFloat = 12
+        static let subtitlePaddingTop: CGFloat = 8
+    }
 }
 
 // MARK: - EdgeInsets + Values
