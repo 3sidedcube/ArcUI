@@ -30,27 +30,25 @@ struct ARCTitleImageCard<Trailing: View>: View {
 
     public var body: some View {
         VStack(spacing: 0) {
-            VStack(spacing: 0) {
-                Text(verbatim: title)
-                    .style(.arcH2)
-                    .foregroundColor(.arcBlack)
-                    .padding(.bottom, 8)
-                Text(verbatim: subtitle)
-                    .style(.arcH4)
-                    .foregroundColor(.arcDarkGray)
-                    .padding(.bottom, .arcVerticalPadding)
-                image
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: .infinity, height: 120)
-                    .cornerRadius(.arcCornerRadius)
-                    .padding(.bottom, .arcVerticalPadding)
-                trailing()
-            }
-            .padding(12)
-            .padding(.top, .arcVerticalPadding)
-            .multilineTextAlignment(.center)
+            Text(verbatim: title)
+                .style(.arcH2)
+                .foregroundColor(.arcBlack)
+                .padding(.bottom, 8)
+            Text(verbatim: subtitle)
+                .style(.arcH4)
+                .foregroundColor(.arcDarkGray)
+                .padding(.bottom, .arcVerticalPadding)
+            image
+                .resizable()
+                .scaledToFill()
+                .frame(width: .infinity, height: 120)
+                .cornerRadius(.arcCornerRadius)
+                .padding(.bottom, .arcVerticalPadding)
+            trailing()
         }
+        .padding(12)
+        .padding(.top, .arcVerticalPadding)
+        .multilineTextAlignment(.center)
         .background(Color.arcWhite)
         .cornerRadius(.arcCornerRadius)
     }
