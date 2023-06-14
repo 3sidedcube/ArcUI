@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct ARCTitleImageCard<Trailing: View>: View {
+public struct ARCTitleImageCard<Trailing: View>: View {
 
     public var title: String
     public var subtitle: String
