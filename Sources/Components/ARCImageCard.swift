@@ -16,7 +16,7 @@ public struct ARCImageCard: View {
     public var image: Image
     public var onTap: () -> Void
 
-    init(
+    public init(
         title: String,
         subtitle: String,
         footerTitle: String,

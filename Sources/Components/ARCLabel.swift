@@ -7,22 +7,25 @@
 //
 
 import SwiftUI
+import CubeFoundationSwiftUI
 
 public struct ARCLabel: View {
 
     public var title: String
     public var color: Color
     public var textColor: Color
+    public var textStyle: TextStyle
 
-    public init(title: String, color: Color = Color.arcRed, textColor: Color = Color.arcWhite) {
+    public init(title: String, color: Color = Color.arcRed, textColor: Color = Color.arcWhite, textStyle: TextStyle = .arcLabel) {
         self.title = title
         self.color = color
         self.textColor = textColor
+        self.textStyle = textStyle
     }
 
     public var body: some View {
         Text(title)
-            .style(.arcLabel)
+            .style(textStyle)
             .foregroundColor(textColor)
             .padding(.arcLabel)
             .background(color)
