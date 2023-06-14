@@ -58,6 +58,7 @@ public struct ARCSelectable: View {
                     .strokeBorder(
                         isSelected ? Color.arcRed : Color.arcBorderGray, lineWidth: .arcBorder)
             )
+            .accessibilityAddTraits(isSelected ? .isSelected : [])
         }
     }
 }

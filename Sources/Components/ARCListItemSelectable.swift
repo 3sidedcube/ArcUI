@@ -48,6 +48,7 @@ public struct ARCListItemSelectable: View {
                     .foregroundColor(Color.arcLightGray)
                 , alignment: .bottom
             )
+            .accessibilityAddTraits(isSelected ? .isSelected : [])
         }
     }
 }
