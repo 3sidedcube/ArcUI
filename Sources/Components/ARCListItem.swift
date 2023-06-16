@@ -57,10 +57,10 @@ public struct ARCListItem<Leading: View, Trailing: View>: View {
             }
             .frame(maxWidth: .infinity, alignment: .leading)
             .multilineTextAlignment(.leading)
+            .padding(subtitle == nil ? EdgeInsets.arcListItemContainer : EdgeInsets.arcListItemContainerSubtitle)
             trailing()
         }
         .frame(maxWidth: .infinity, alignment: .leading)
-        .padding(subtitle == nil ? EdgeInsets.arcListItemContainer : EdgeInsets.arcListItemContainerSubtitle)
         .background(Color.arcWhite)
         .overlay(
             Rectangle()
