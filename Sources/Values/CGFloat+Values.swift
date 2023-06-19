@@ -27,12 +27,12 @@ public extension CGFloat {
     struct ArcListItem {
 
         static let spacing: CGFloat = 4
-        static let chevronPadding: CGFloat = 24
-        static let leadingPadding: CGFloat = 25
-        static let trailingPadding: CGFloat = 16
+        public static let chevronPadding: CGFloat = 24
+        public static let leadingPadding: CGFloat = 25
+        public static let trailingPadding: CGFloat = 16
         public static let verticalPadding: CGFloat = 32
         public static let verticalPaddingSubtitle: CGFloat = 26
-        static let labelLeadingPadding: CGFloat = 6
+        public static let labelLeadingPadding: CGFloat = 6
     }
 
     struct ArcListItemSelectable {
