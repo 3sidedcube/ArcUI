@@ -53,7 +53,6 @@ public struct ARCListItem<Leading: View, Trailing: View>: View {
         self.verticalPadding = verticalPadding
     }
 
-
     public var body: some View {
         Button(action: onTap) {
             HStack(spacing: 0) {
