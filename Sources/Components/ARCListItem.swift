@@ -12,10 +12,17 @@ import CubeFoundationSwiftUI
 /// List Item Component
 public struct ARCListItem<Leading: View, Trailing: View>: View {
 
+    /// Functional
     public var title: String
     public var subtitle: String?
     public var labelTitle: String?
     public var onTap: () -> Void
+    /// Styling
+    public var background: Color?
+    public var titleForeground: Color?
+    public var subtitleForeground: Color?
+    public var borderColor: Color?
+    public var verticalPadding: CGFloat?
 
     @ViewBuilder public var leading: () -> Leading
     @ViewBuilder public var trailing: () -> Trailing
@@ -26,7 +33,12 @@ public struct ARCListItem<Leading: View, Trailing: View>: View {
         labelTitle: String? = nil,
         @ViewBuilder leading: @escaping () -> Leading,
         @ViewBuilder trailing: @escaping () -> Trailing,
-        onTap: @escaping () -> Void
+        onTap: @escaping () -> Void,
+        background: Color? = Color.arcWhite,
+        titleForeground: Color? = Color.arcBlack,
+        subtitleForeground: Color? = Color.arcDarkGray,
+        borderColor: Color? = Color.arcLightGray,
+        verticalPadding: CGFloat? = .ArcListItem.verticalPadding
     ) {
         self.title = title
         self.subtitle = subtitle
@@ -34,6 +46,11 @@ public struct ARCListItem<Leading: View, Trailing: View>: View {
         self.leading = leading
         self.trailing = trailing
         self.onTap = onTap
+        self.background = background
+        self.titleForeground = titleForeground
+        self.subtitleForeground = subtitleForeground
+        self.borderColor = borderColor
+        self.verticalPadding = verticalPadding
     }
 
     public var body: some View {
@@ -43,11 +60,11 @@ public struct ARCListItem<Leading: View, Trailing: View>: View {
                 VStack(alignment: .leading, spacing: .ArcListItem.spacing) {
                     Text(title)
                         .style(.arcH4)
-                        .foregroundColor(.arcBlack)
+                        .foregroundColor(titleForeground)
                     if let subtitle {
                         Text(subtitle)
                             .style(.arcBody2)
-                            .foregroundColor(.arcDarkGray)
+                            .foregroundColor(subtitleForeground)
                     }
                 }
                 if let labelTitle {
@@ -57,16 +74,17 @@ public struct ARCListItem<Leading: View, Trailing: View>: View {
             }
             .frame(maxWidth: .infinity, alignment: .leading)
             .multilineTextAlignment(.leading)
+            .padding(.vertical, verticalPadding)
             .padding(subtitle == nil ? EdgeInsets.arcListItemContainer : EdgeInsets.arcListItemContainerSubtitle)
             trailing()
-                .padding(.trailing, .ArcListItem.trailingPadding)
+            .padding(.trailing, .ArcListItem.trailingPadding)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
-        .background(Color.arcWhite)
+        .background(background)
         .overlay(
             Rectangle()
                 .frame(height: .arcBorder)
-                .foregroundColor(Color.arcLightGray)
+                .foregroundColor(borderColor)
             , alignment: .bottom
         )
     }
@@ -85,6 +103,34 @@ struct ARCListItem_Previews: PreviewProvider {
                             .padding(.leading, .ArcListItem.chevronPadding)
                     },
                     onTap: {}
+                )
+                ARCListItem(
+                    title: "Map Overlay",
+                    leading: { EmptyView() },
+                    trailing: {
+                        Image.arcRoundedRightChevron
+                            .padding(.leading, .ArcListItem.chevronPadding)
+                    },
+                    onTap: {},
+                    background: Color.arcCharcoal,
+                    titleForeground: Color.arcWhite
+                )
+                ARCListItem(
+                    title: "Map Overlay",
+                    leading: { EmptyView() },
+                    trailing: {
+                        Image.arcRoundedRightChevron
+                            .padding(.leading, .ArcListItem.chevronPadding)
+                    },
+                    onTap: {},
+                    background: Color.arcBlack,
+                    titleForeground: Color.arcWhite,
+                    verticalPadding: 20
+                )
+                .cornerRadius(.arcCornerRadius)
+                .overlay(
+                    RoundedRectangle(cornerRadius: .arcCornerRadius)
+                        .strokeBorder(Color.arcDarkGray, lineWidth: .arcBorder)
                 )
                 ARCListItem(
                     title: "Map Overlay",

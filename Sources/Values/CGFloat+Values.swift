@@ -30,8 +30,8 @@ public extension CGFloat {
         static let chevronPadding: CGFloat = 24
         static let leadingPadding: CGFloat = 25
         static let trailingPadding: CGFloat = 16
-        static let verticalPadding: CGFloat = 32
-        static let verticalPaddingSubtitle: CGFloat = 26
+        public static let verticalPadding: CGFloat = 32
+        public static let verticalPaddingSubtitle: CGFloat = 26
         static let labelLeadingPadding: CGFloat = 6
     }
 
@@ -95,16 +95,16 @@ public extension EdgeInsets {
     )
 
     static let arcListItemContainer = EdgeInsets(
-        top: .ArcListItem.verticalPadding,
+        top: 0,
         leading: .ArcListItem.leadingPadding,
-        bottom: .ArcListItem.verticalPadding,
+        bottom: 0,
         trailing: .ArcListItem.trailingPadding
     )
 
     static let arcListItemContainerSubtitle = EdgeInsets(
-        top: .ArcListItem.verticalPaddingSubtitle,
+        top: 0,
         leading: .ArcListItem.leadingPadding,
-        bottom: .ArcListItem.verticalPaddingSubtitle,
+        bottom: 0,
         trailing: .ArcListItem.trailingPadding
     )
 
