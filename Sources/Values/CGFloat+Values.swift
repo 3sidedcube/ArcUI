@@ -95,16 +95,16 @@ public extension EdgeInsets {
     )
 
     static let arcListItemContainer = EdgeInsets(
-        top: .ArcListItem.verticalPadding,
+        top: 0,
         leading: .ArcListItem.leadingPadding,
-        bottom: .ArcListItem.verticalPadding,
+        bottom: 0,
         trailing: .ArcListItem.trailingPadding
     )
 
     static let arcListItemContainerSubtitle = EdgeInsets(
-        top: .ArcListItem.verticalPaddingSubtitle,
+        top: 0,
         leading: .ArcListItem.leadingPadding,
-        bottom: .ArcListItem.verticalPaddingSubtitle,
+        bottom: 0,
         trailing: .ArcListItem.trailingPadding
     )
 
