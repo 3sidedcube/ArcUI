@@ -21,6 +21,7 @@ public struct ARCListItem<Leading: View, Trailing: View>: View {
     public var background: Color?
     public var titleForeground: Color?
     public var subtitleForeground: Color?
+    public var borderless: Bool?
     public var borderColor: Color?
     public var verticalPadding: CGFloat?
 
@@ -37,6 +38,7 @@ public struct ARCListItem<Leading: View, Trailing: View>: View {
         background: Color? = Color.arcWhite,
         titleForeground: Color? = Color.arcBlack,
         subtitleForeground: Color? = Color.arcDarkGray,
+        borderless: Bool = false,
         borderColor: Color? = Color.arcLightGray,
         verticalPadding: CGFloat? = .ArcListItem.verticalPadding
     ) {
@@ -49,6 +51,7 @@ public struct ARCListItem<Leading: View, Trailing: View>: View {
         self.background = background
         self.titleForeground = titleForeground
         self.subtitleForeground = subtitleForeground
+        self.borderless = borderless
         self.borderColor = borderColor
         self.verticalPadding = verticalPadding
     }
@@ -82,10 +85,14 @@ public struct ARCListItem<Leading: View, Trailing: View>: View {
         .frame(maxWidth: .infinity, alignment: .leading)
         .background(background)
         .overlay(
-            Rectangle()
-                .frame(height: .arcBorder)
-                .foregroundColor(borderColor)
-            , alignment: .bottom
+            alignment: .bottom,
+            content: {
+                if borderless == nil || borderless == false {
+                    Rectangle()
+                        .frame(height: .arcBorder)
+                        .foregroundColor(borderColor)
+                }
+            }
         )
     }
 }
