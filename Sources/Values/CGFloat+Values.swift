@@ -30,8 +30,8 @@ public extension CGFloat {
         static let chevronPadding: CGFloat = 24
         static let leadingPadding: CGFloat = 25
         static let trailingPadding: CGFloat = 16
-        static let verticalPadding: CGFloat = 32
-        static let verticalPaddingSubtitle: CGFloat = 26
+        public static let verticalPadding: CGFloat = 32
+        public static let verticalPaddingSubtitle: CGFloat = 26
         static let labelLeadingPadding: CGFloat = 6
     }
 

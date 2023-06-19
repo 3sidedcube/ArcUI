@@ -38,7 +38,7 @@ public struct ARCListItem<Leading: View, Trailing: View>: View {
         titleForeground: Color? = Color.arcBlack,
         subtitleForeground: Color? = Color.arcDarkGray,
         borderColor: Color? = Color.arcLightGray,
-        verticalPadding: CGFloat? = nil
+        verticalPadding: CGFloat? = .ArcListItem.verticalPadding
     ) {
         self.title = title
         self.subtitle = subtitle
@@ -74,7 +74,7 @@ public struct ARCListItem<Leading: View, Trailing: View>: View {
             }
             .frame(maxWidth: .infinity, alignment: .leading)
             .multilineTextAlignment(.leading)
-            .padding(.vertical, verticalPadding ?? .ArcListItem.verticalPadding)
+            .padding(.vertical, verticalPadding)
             .padding(subtitle == nil ? EdgeInsets.arcListItemContainer : EdgeInsets.arcListItemContainerSubtitle)
             trailing()
             .padding(.trailing, .ArcListItem.trailingPadding)
