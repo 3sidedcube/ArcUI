@@ -40,7 +40,8 @@ public struct ARCTitleImageCard<Trailing: View>: View {
             image
                 .resizable()
                 .scaledToFill()
-                .frame(maxWidth: .infinity, maxHeight: .ArcTitleImageCard.imageHeight)
+                .frame(height: .ArcTitleImageCard.imageHeight)
+                .frame(maxWidth: .infinity)
                 .cornerRadius(.arcCornerRadius)
                 .padding(.top, .arcVerticalPadding)
             trailing()
