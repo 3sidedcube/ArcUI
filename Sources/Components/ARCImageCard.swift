@@ -37,7 +37,8 @@ public struct ARCImageCard: View {
                 image
                     .resizable()
                     .scaledToFill()
-                    .frame(width: .infinity, height: .ArcImageCard.imageHeight)
+                    .frame(height: .ArcImageCard.imageHeight)
+                    .frame(maxWidth: .infinity)
                     .clipped()
                 // Body
                 VStack(alignment: .leading, spacing: 8) {
