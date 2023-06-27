@@ -22,12 +22,7 @@ struct ARCSeparator: View {
 
 public extension View {
 
-    @ViewBuilder func arcSeparator(
-        isVisible: Bool = true,
-        alignment: Alignment = .top
-    ) -> some View {
-        if isVisible {
-            self.overlay(ARCSeparator(), alignment: alignment)
-        }
+    func arcSeparator(alignment: Alignment = .top) -> some View {
+        self.overlay(ARCSeparator(), alignment: alignment)
     }
 }
