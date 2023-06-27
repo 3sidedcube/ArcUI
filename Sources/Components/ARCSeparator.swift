@@ -8,12 +8,26 @@
 
 import SwiftUI
 
-public struct ARCSeparator: View {
+struct ARCSeparator: View {
 
-    public init() {}
+    var color: Color = .arcLightGray
 
-    public var body: some View {
-        Color.arcBorderGray
+    var body: some View {
+        color
             .frame(height: .arcBorder)
+    }
+}
+
+// MARK: - View + Extensions
+
+public extension View {
+
+    @ViewBuilder func arcSeparator(
+        isVisible: Bool = true,
+        alignment: Alignment = .top
+    ) -> some View {
+        if isVisible {
+            self.overlay(ARCSeparator(), alignment: alignment)
+        }
     }
 }

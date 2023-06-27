@@ -12,15 +12,18 @@ public struct ARCListItemSelectable: View {
 
     public var title: String
     public var isSelected: Bool
+    public var hasTopSeparator: Bool
     public var onTap: () -> Void
 
     public init(
         title: String,
         isSelected: Bool,
+        hasTopSeparator: Bool = true,
         onTap: @escaping () -> Void
     ) {
         self.title = title
         self.isSelected = isSelected
+        self.hasTopSeparator = hasTopSeparator
         self.onTap = onTap
     }
 
@@ -42,7 +45,7 @@ public struct ARCListItemSelectable: View {
             }
             .frame(minHeight: .ArcListItemSelectable.minHeight)
             .background(Color.arcWhite)
-            .overlay(ARCSeparator(), alignment: .top)
+            .arcSeparator(isVisible: hasTopSeparator)
             .accessibilityAddTraits(isSelected ? .isSelected : [])
         }
     }
