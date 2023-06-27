@@ -42,12 +42,7 @@ public struct ARCListItemSelectable: View {
             }
             .frame(minHeight: .ArcListItemSelectable.minHeight)
             .background(Color.arcWhite)
-            .overlay(
-                Rectangle()
-                    .frame(height: .arcBorder)
-                    .foregroundColor(Color.arcLightGray)
-                , alignment: .bottom
-            )
+            .overlay(ARCSeparator(), alignment: .top)
             .accessibilityAddTraits(isSelected ? .isSelected : [])
         }
     }
