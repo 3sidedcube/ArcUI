@@ -11,7 +11,7 @@ import SwiftUI
 /// `View` with sticky button content
 public struct StickyButton: ViewModifier {
 
-    @Environment(\.horizontalSizeClass) var horizontalSizeClass
+    @Environment(\.verticalSizeClass) var verticalSizeClass
 
     public var title: String
     public var style: ARCButton.Style
@@ -40,7 +40,7 @@ public struct StickyButton: ViewModifier {
                 ARCButton(title: title, style: style, onTap: onTap)
                     .disabled(!isEnabled)
                     .loading(isLoading)
-                    .frame(maxWidth: horizontalSizeClass == .compact ? nil : .infinity)
+                    .frame(maxWidth: verticalSizeClass == .regular ? nil : .infinity)
                     .padding(EdgeInsets.arcStickyContainer)
             }
         )
