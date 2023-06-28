@@ -16,6 +16,8 @@ public struct ARCTitleImageCard<Trailing: View>: View {
 
     @ViewBuilder public var trailing: () -> Trailing
 
+    @Environment(\.verticalSizeClass) var verticalSizeClass
+
     public init(
         title: String,
         subtitle: String,
@@ -30,28 +32,66 @@ public struct ARCTitleImageCard<Trailing: View>: View {
 
     public var body: some View {
         VStack(spacing: 0) {
-            Text(verbatim: title)
-                .style(.arcH2)
-                .foregroundColor(.arcBlack)
-            Text(verbatim: subtitle)
-                .style(.arcH4)
-                .foregroundColor(.arcDarkGray)
-                .padding(.top, .ArcTitleImageCard.subtitlePaddingTop)
-            image
-                .resizable()
-                .scaledToFill()
-                .frame(height: .ArcTitleImageCard.imageHeight)
-                .frame(maxWidth: .infinity)
-                .cornerRadius(.arcCornerRadius)
-                .padding(.top, .arcVerticalPadding)
+            TitleImageCardHeader(
+                title: title,
+                subtitle: subtitle
+            )
+            if verticalSizeClass == .regular {
+                image
+                    .resizable()
+                    .scaledToFill()
+                    .frame(maxWidth: .infinity, maxHeight: .ArcTitleImageCard.imageHeight)
+                    .cornerRadius(.arcCornerRadius)
+                    .padding(.top, .arcVerticalPadding)
+            }
             trailing()
                 .padding(.top, .arcVerticalPadding)
+                .frame(maxWidth: .infinity)
+                .arcSeparator()
         }
-        .padding(.ArcTitleImageCard.padding)
-        .padding(.top, .arcVerticalPadding)
+        .padding(.horizontal, verticalSizeClass == .regular ? .arcVerticalPadding : 0)
+        .padding(.vertical, .arcVerticalPadding)
         .multilineTextAlignment(.center)
         .background(Color.arcWhite)
         .cornerRadius(.arcCornerRadius)
+    }
+}
+
+// MARK: - TitleImageCardHeader
+
+private struct TitleImageCardHeader: View {
+
+    var title: String
+    var subtitle: String
+
+    @Environment(\.verticalSizeClass) var verticalSizeClass
+
+    var body: some View {
+        if verticalSizeClass == .regular {
+            VStack(spacing: 0) {
+                Text(verbatim: title)
+                    .style(.arcH2)
+                    .foregroundColor(.arcBlack)
+                Text(verbatim: subtitle)
+                    .style(.arcH4)
+                    .foregroundColor(.arcDarkGray)
+                    .padding(.top, .ArcTitleImageCard.subtitlePaddingTop)
+            }
+        } else {
+            HStack(alignment: .center) {
+                Text(verbatim: title)
+                    .style(.arcH2)
+                    .foregroundColor(.arcBlack)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                Text(verbatim: subtitle)
+                    .style(.arcH4)
+                    .foregroundColor(.arcDarkGray)
+                    .frame(maxWidth: .infinity, alignment: .trailing)
+            }
+            .multilineTextAlignment(.leading)
+            .padding(.vertical, .arcVerticalPadding)
+            .padding(.horizontal, .arcHorizontalPadding)
+        }
     }
 }
 
@@ -66,6 +106,7 @@ struct ARCTitleImageCardView_Previews: PreviewProvider {
                     ARCButton(
                         title: "Add Home Location",
                         style: .primary,
+                        icon: .arcPlusIcon,
                         onTap: {}
                     )
                 }
@@ -74,5 +115,6 @@ struct ARCTitleImageCardView_Previews: PreviewProvider {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.arcBackground)
+        .previewInterfaceOrientation(.landscapeLeft)
     }
 }
