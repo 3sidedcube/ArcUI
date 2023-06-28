@@ -118,7 +118,7 @@ struct ARCProgressBar_Previews: PreviewProvider {
         GeometryReader { reader in
             let total: Int = 4
             let capsuleWidth = (reader.size.width / CGFloat(total)) - .arcHorizontalPadding
-            let capsuleHeight: CGFloat = CGFloat.ArcProgressBar.capsuleHeight
+            let capsuleHeight: CGFloat.ArcProgressBar.capsuleHeight
 
             VStack(spacing: 20) {
                 ARCProgressBar(total: total, progress: 2.5, capsuleWidth: capsuleWidth, capsuleHeight: capsuleHeight)
