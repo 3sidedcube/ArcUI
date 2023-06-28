@@ -16,12 +16,7 @@ public struct ARCTitleImageCard<Trailing: View>: View {
 
     @ViewBuilder public var trailing: () -> Trailing
 
-    @Environment(\.horizontalSizeClass) var horizontalSizeClass
     @Environment(\.verticalSizeClass) var verticalSizeClass
-
-    var isPortrait: Bool {
-        horizontalSizeClass == .compact && verticalSizeClass == .regular
-    }
 
     public init(
         title: String,
@@ -39,10 +34,9 @@ public struct ARCTitleImageCard<Trailing: View>: View {
         VStack(spacing: 0) {
             TitleImageCardHeader(
                 title: title,
-                subtitle: subtitle,
-                isPortrait: isPortrait
+                subtitle: subtitle
             )
-            if isPortrait {
+            if verticalSizeClass == .regular {
                 image
                     .resizable()
                     .scaledToFill()
@@ -55,7 +49,7 @@ public struct ARCTitleImageCard<Trailing: View>: View {
                 .frame(maxWidth: .infinity)
                 .arcSeparator()
         }
-        .padding(.horizontal, isPortrait ? .arcVerticalPadding : 0)
+        .padding(.horizontal, verticalSizeClass == .regular ? .arcVerticalPadding : 0)
         .padding(.vertical, .arcVerticalPadding)
         .multilineTextAlignment(.center)
         .background(Color.arcWhite)
@@ -69,10 +63,11 @@ private struct TitleImageCardHeader: View {
 
     var title: String
     var subtitle: String
-    var isPortrait: Bool
+
+    @Environment(\.verticalSizeClass) var verticalSizeClass
 
     var body: some View {
-        if isPortrait {
+        if verticalSizeClass == .regular {
             VStack(spacing: 0) {
                 Text(verbatim: title)
                     .style(.arcH2)
