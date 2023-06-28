@@ -81,15 +81,30 @@ struct CapsuleView: View {
         return 1 / (1 - (1 - leftOver))
     }
 
+    /// Calculate the top capsule width
+    var progressWidth: CGFloat {
+        let progress = isPartiallyFilled ? capsuleWidth / CGFloat(partiallyDividedBy) : capsuleWidth
+        return progress + (.ArcProgressBar.capsuleTrailingWidth / 2) // For perfect centering
+    }
+
     var body: some View {
         ZStack(alignment: .leading) {
             Capsule().fill(emptyColor)
             if isFilledCapsule {
-                Capsule().fill(filledColor)
-                    .frame(
-                        width: isPartiallyFilled ? capsuleWidth / CGFloat(partiallyDividedBy) : capsuleWidth,
-                        height: capsuleHeight
-                    )
+                ZStack {
+                    Capsule().fill(filledColor)
+                        .frame(
+                            width: progressWidth,
+                            height: capsuleHeight
+                        )
+                    if isPartiallyFilled {
+                        Rectangle()
+                            .fill(Color.arcWhite)
+                            .frame(maxWidth: .ArcProgressBar.capsuleTrailingWidth, alignment: .trailing)
+                            .frame(maxWidth: .infinity, alignment: .trailing)
+                    }
+                }
+                .frame(maxWidth: progressWidth)
             }
         }
         .frame(width: capsuleWidth, height: capsuleHeight)
@@ -103,7 +118,7 @@ struct ARCProgressBar_Previews: PreviewProvider {
         GeometryReader { reader in
             let total: Int = 4
             let capsuleWidth = (reader.size.width / CGFloat(total)) - .arcHorizontalPadding
-            let capsuleHeight = CGFloat.ArcProgressBar.capsuleHeight
+            let capsuleHeight: CGFloat = CGFloat.ArcProgressBar.capsuleHeight
 
             VStack(spacing: 20) {
                 ARCProgressBar(total: total, progress: 2.5, capsuleWidth: capsuleWidth, capsuleHeight: capsuleHeight)
@@ -113,6 +128,7 @@ struct ARCProgressBar_Previews: PreviewProvider {
             }
             .padding(.arcHorizontalPadding)
             .frame(maxHeight: .infinity)
+            .background(Color.arcCharcoal)
         }
     }
 }
