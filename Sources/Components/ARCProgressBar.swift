@@ -92,7 +92,8 @@ struct CapsuleView: View {
             Capsule().fill(emptyColor)
             if isFilledCapsule {
                 ZStack {
-                    Capsule().fill(filledColor)
+                    Capsule()
+                        .fill(filledColor)
                         .frame(
                             width: progressWidth,
                             height: capsuleHeight
