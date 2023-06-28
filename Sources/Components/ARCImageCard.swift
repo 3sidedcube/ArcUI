@@ -62,6 +62,7 @@ public struct ARCImageCard: View {
                 HStack(spacing: 0) {
                     Text(footerTitle)
                         .style(.arcH4)
+                        .foregroundColor(.arcBlack)
                         .frame(maxWidth: .infinity, alignment: .leading)
                     Image.arcRoundedRightChevron
                 }
