@@ -104,7 +104,7 @@ struct CapsuleView: View {
                             .frame(maxWidth: .infinity, alignment: .trailing)
                     }
                 }
-                .frame(maxWidth: progressWidth)
+                .frame(width: progressWidth)
             }
         }
         .frame(width: capsuleWidth, height: capsuleHeight)
