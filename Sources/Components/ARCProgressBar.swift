@@ -99,9 +99,8 @@ struct CapsuleView: View {
                             height: capsuleHeight
                         )
                     if isPartiallyFilled {
-                        Rectangle()
-                            .fill(Color.arcWhite)
-                            .frame(maxWidth: .ArcProgressBar.capsuleTrailingWidth, alignment: .trailing)
+                        Color.arcWhite
+                            .frame(width: .ArcProgressBar.capsuleTrailingWidth)
                             .frame(maxWidth: .infinity, alignment: .trailing)
                     }
                 }
