@@ -78,7 +78,7 @@ struct CapsuleView: View {
     /// Calucate by how much last pilled needs to be divided by
     var partiallyDividedBy: Float {
         guard leftOver > 0 else { return 1 }
-        return 1 / (1 - (1 - leftOver))
+        return 1 / leftOver
     }
 
     /// Calculate the top capsule width
