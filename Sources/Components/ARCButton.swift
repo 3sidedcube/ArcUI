@@ -131,7 +131,7 @@ struct ARCButton_Previews: PreviewProvider {
 
     static var previews: some View {
         VStack {
-            ARCButton(title: "PRIMARY", style: .primary, icon: Image.arcPlusIcon, onTap: {})
+            ARCButton(title: "PRIMARY", style: .primary, icon: Image.arcPlusIcon, onTap: {}, isFullWidth: true)
             ARCButton(title: "PRIMARY LOADING", style: .primary, onTap: {})
                 .loading(true)
             ARCButton(title: "PRIMARY DISABLED", style: .primary, onTap: {})
