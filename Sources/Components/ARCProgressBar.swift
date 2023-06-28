@@ -78,18 +78,33 @@ struct CapsuleView: View {
     /// Calucate by how much last pilled needs to be divided by
     var partiallyDividedBy: Float {
         guard leftOver > 0 else { return 1 }
-        return 1 / (1 - (1 - leftOver))
+        return 1 / leftOver
+    }
+
+    /// Calculate the top capsule width
+    var progressWidth: CGFloat {
+        let progress = isPartiallyFilled ? capsuleWidth / CGFloat(partiallyDividedBy) : capsuleWidth
+        return progress + (.ArcProgressBar.capsuleTrailingWidth / 2) // For perfect centering
     }
 
     var body: some View {
         ZStack(alignment: .leading) {
             Capsule().fill(emptyColor)
             if isFilledCapsule {
-                Capsule().fill(filledColor)
-                    .frame(
-                        width: isPartiallyFilled ? capsuleWidth / CGFloat(partiallyDividedBy) : capsuleWidth,
-                        height: capsuleHeight
-                    )
+                ZStack {
+                    Capsule()
+                        .fill(filledColor)
+                        .frame(
+                            width: progressWidth,
+                            height: capsuleHeight
+                        )
+                    if isPartiallyFilled {
+                        Color.arcWhite
+                            .frame(width: .ArcProgressBar.capsuleTrailingWidth)
+                            .frame(maxWidth: .infinity, alignment: .trailing)
+                    }
+                }
+                .frame(width: progressWidth)
             }
         }
         .frame(width: capsuleWidth, height: capsuleHeight)
@@ -113,6 +128,7 @@ struct ARCProgressBar_Previews: PreviewProvider {
             }
             .padding(.arcHorizontalPadding)
             .frame(maxHeight: .infinity)
+            .background(Color.arcCharcoal)
         }
     }
 }
