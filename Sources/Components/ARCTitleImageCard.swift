@@ -55,9 +55,8 @@ public struct ARCTitleImageCard<Trailing: View>: View {
                 .frame(maxWidth: .infinity)
                 .arcSeparator()
         }
-        .padding(.horizontal, isPortrait ? .ArcTitleImageCard.padding : 0)
-        .padding(.top, .arcVerticalPadding)
-        .padding(.bottom, .ArcTitleImageCard.padding)
+        .padding(.horizontal, isPortrait ? .arcVerticalPadding : 0)
+        .padding(.vertical, .arcVerticalPadding)
         .multilineTextAlignment(.center)
         .background(Color.arcWhite)
         .cornerRadius(.arcCornerRadius)
@@ -113,8 +112,10 @@ struct ARCTitleImageCardView_Previews: PreviewProvider {
                         title: "Add Home Location",
                         style: .primary,
                         icon: .arcPlusIcon,
-                        onTap: {}
+                        onTap: {},
+                        isFullWidth: true
                     )
+                    .padding(.horizontal, .arcHorizontalPadding)
                 }
             )
             .padding(.horizontal, .arcHorizontalPadding)
