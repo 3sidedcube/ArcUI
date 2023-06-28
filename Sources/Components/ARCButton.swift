@@ -36,7 +36,6 @@ public struct ARCButton: View {
     public var style: Style
     public var onTap: () -> Void
     public var icon: Image?
-    public var isFullWidth: Bool?
 
     /// Mapped `Style` based on states
     private var buttonStyle: Style {
@@ -47,14 +46,12 @@ public struct ARCButton: View {
         title: String,
         style: Style,
         icon: Image? = nil,
-        onTap: @escaping () -> Void,
-        isFullWidth: Bool? = false
+        onTap: @escaping () -> Void
     ) {
         self.title = title
         self.style = style
         self.icon = icon
         self.onTap = onTap
-        self.isFullWidth = isFullWidth
     }
 
     public var body: some View {
@@ -80,8 +77,8 @@ public struct ARCButton: View {
                     ))
                     .opacity(isLoading ? 1 : 0)
             }
-            .frame(width: verticalSizeClass == .regular ? nil : isFullWidth! ? .infinity : .ArcButton.landscapeWidth)
-            .frame(maxWidth: verticalSizeClass == .regular ? .infinity : isFullWidth! ? .infinity : nil)
+            .frame(width: verticalSizeClass == .regular ? nil : .ArcButton.landscapeWidth)
+            .frame(maxWidth: verticalSizeClass == .regular ? .infinity : nil)
             .padding(.ArcButton.padding)
             .background(buttonStyle.backgroundColor)
             .cornerRadius(.arcCornerRadius)
@@ -131,7 +128,7 @@ struct ARCButton_Previews: PreviewProvider {
 
     static var previews: some View {
         VStack {
-            ARCButton(title: "PRIMARY", style: .primary, icon: Image.arcPlusIcon, onTap: {}, isFullWidth: true)
+            ARCButton(title: "PRIMARY", style: .primary, icon: Image.arcPlusIcon, onTap: {})
             ARCButton(title: "PRIMARY LOADING", style: .primary, onTap: {})
                 .loading(true)
             ARCButton(title: "PRIMARY DISABLED", style: .primary, onTap: {})

@@ -112,10 +112,8 @@ struct ARCTitleImageCardView_Previews: PreviewProvider {
                         title: "Add Home Location",
                         style: .primary,
                         icon: .arcPlusIcon,
-                        onTap: {},
-                        isFullWidth: true
+                        onTap: {}
                     )
-                    .padding(.horizontal, .arcHorizontalPadding)
                 }
             )
             .padding(.horizontal, .arcHorizontalPadding)
