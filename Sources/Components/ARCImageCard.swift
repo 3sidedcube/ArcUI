@@ -40,6 +40,7 @@ public struct ARCImageCard: View {
                     .frame(height: .ArcImageCard.imageHeight)
                     .frame(maxWidth: .infinity)
                     .clipped()
+                    .accessibilityHidden(true)
                 // Body
                 VStack(alignment: .leading, spacing: 8) {
                     Text(title)
@@ -69,6 +70,8 @@ public struct ARCImageCard: View {
                 .multilineTextAlignment(.leading)
                 .padding(EdgeInsets.arcImageCardFooter)
             }
+            .accessibilityElement(children: .combine)
+            .accessibilityLabel("\(title) \(subtitle) \(footerTitle)")
             .background(Color.arcWhite)
             .cornerRadius(.arcCornerRadius)
             .shadow(.arcContainer)
