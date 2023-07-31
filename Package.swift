@@ -18,7 +18,7 @@ let package = Package(
     dependencies: [
         .package(
             url: "https://github.com/3sidedcube/cubefoundation-ios.git",
-            branch: "release/v1.0.0"
+            branch: "develop"
         )
     ],
     targets: [
