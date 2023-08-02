@@ -14,6 +14,7 @@ public struct ARCImageCard: View {
     public var subtitle: String
     public var footerTitle: String
     public var image: Image
+    public var titleAlignment: TextAlignment
     public var onTap: () -> Void
 
     public init(
@@ -21,12 +22,14 @@ public struct ARCImageCard: View {
         subtitle: String,
         footerTitle: String,
         image: Image,
+        titleAlignment: TextAlignment = .center,
         onTap: @escaping () -> Void
     ) {
         self.title = title
         self.subtitle = subtitle
         self.footerTitle = footerTitle
         self.image = image
+        self.titleAlignment = titleAlignment
         self.onTap = onTap
     }
 
@@ -46,6 +49,7 @@ public struct ARCImageCard: View {
                     Text(title)
                         .style(.arcH3)
                         .foregroundColor(.arcBlack)
+                        .multilineTextAlignment(titleAlignment)
                     Text(subtitle)
                         .style(.arcH4)
                         .foregroundColor(.arcDarkGray)
@@ -82,8 +86,21 @@ public struct ARCImageCard: View {
 struct ARCImageCard_Previews: PreviewProvider {
     static var previews: some View {
         VStack(spacing: 24) {
-            ARCImageCard(title: "Build your evacuation plan", subtitle: "2/3 Complete", footerTitle: "View Goal", image: Image.arcImageCardPreview, onTap: {})
-            ARCImageCard(title: "This is a very long title indeed that won't end very soon and will try to break the UI", subtitle: "This is also a very long long description that will not end very soon and will try to break the UI.", footerTitle: "View Goal", image: Image.arcImageCardPreview, onTap: {})
+            ARCImageCard(
+                title: "Build your evacuation plan",
+                subtitle: "2/3 Complete",
+                footerTitle: "View Goal",
+                image: Image.arcImageCardPreview,
+                onTap: {}
+            )
+            ARCImageCard(
+                title: "This is a very long title indeed that won't end very soon and will try to break the UI",
+                subtitle: "This is also a very long long description that will not end very soon and will try to break the UI.",
+                footerTitle: "View Goal",
+                image: Image.arcImageCardPreview,
+                titleAlignment: .leading,
+                onTap: {}
+            )
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .padding(.arcHorizontalPadding)
