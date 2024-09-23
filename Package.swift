@@ -7,7 +7,7 @@ let package = Package(
     name: "ArcUI",
     platforms: [
         // .macOS(.v12), Uses UIKit
-        .iOS(.v15)
+        .iOS(.v16)
     ],
     products: [
         .library(
