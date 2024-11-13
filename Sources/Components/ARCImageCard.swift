@@ -14,6 +14,7 @@ public struct ARCImageCard: View {
     public var subtitle: String
     public var footerTitle: String
     public var image: Image
+    public var imageSizeRatio: CGFloat?
     public var titleAlignment: TextAlignment
     public var onTap: () -> Void
 
@@ -22,6 +23,7 @@ public struct ARCImageCard: View {
         subtitle: String,
         footerTitle: String,
         image: Image,
+        imageSizeRatio: CGFloat? = nil,
         titleAlignment: TextAlignment = .center,
         onTap: @escaping () -> Void
     ) {
@@ -29,6 +31,7 @@ public struct ARCImageCard: View {
         self.subtitle = subtitle
         self.footerTitle = footerTitle
         self.image = image
+        self.imageSizeRatio = imageSizeRatio
         self.titleAlignment = titleAlignment
         self.onTap = onTap
     }
@@ -37,13 +40,29 @@ public struct ARCImageCard: View {
         Button(action: onTap) {
             VStack(alignment: .leading, spacing: 0) {
                 // Image
-                image
-                    .resizable()
-                    .scaledToFill()
-                    .frame(height: .ArcImageCard.imageHeight)
-                    .frame(maxWidth: .infinity)
-                    .clipped()
-                    .accessibilityHidden(true)
+                if let imageSizeRatio {
+                    // Aspect ratio
+                    Color.clear
+                        .aspectRatio(imageSizeRatio, contentMode: .fill)
+                        .frame(maxWidth: .infinity)
+                        .overlay {
+                            image
+                                .resizable()
+                                .scaledToFill()
+                                .accessibilityHidden(true)
+                        }
+                        .clipped()
+                } else {
+                    // Fixed height
+                    image
+                        .resizable()
+                        .scaledToFill()
+                        .frame(height: .ArcImageCard.imageHeight)
+                        .frame(maxWidth: .infinity)
+                        .clipped()
+                        .accessibilityHidden(true)
+                }
+
                 // Body
                 VStack(alignment: .leading, spacing: 8) {
                     Text(title)
