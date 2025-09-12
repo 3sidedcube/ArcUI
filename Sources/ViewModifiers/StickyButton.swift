@@ -17,6 +17,7 @@ public struct StickyButton: ViewModifier {
     public var style: ARCButton.Style
     public var isEnabled: Bool
     public var isLoading: Bool
+    public var icon: Image?
     public var onTap: () -> Void
 
     /// Public memberwise initializer
@@ -25,19 +26,21 @@ public struct StickyButton: ViewModifier {
         style: ARCButton.Style,
         isEnabled: Bool = true,
         isLoading: Bool = false,
+        icon: Image? = nil,
         onTap: @escaping () -> Void
     ) {
         self.title = title
         self.style = style
         self.isEnabled = isEnabled
         self.isLoading = isLoading
+        self.icon = icon
         self.onTap = onTap
     }
 
     public func body(content: Content) -> some View {
         content.modifier(
             StickyBottom {
-                ARCButton(title: title, style: style, onTap: onTap)
+                ARCButton(title: title, style: style, icon: icon, onTap: onTap)
                     .disabled(!isEnabled)
                     .loading(isLoading)
                     .frame(maxWidth: verticalSizeClass == .regular ? nil : .infinity)

@@ -13,7 +13,7 @@ import CubeFoundationSwiftUI
 public struct ARCButton: View {
 
     /// Fixed set of button styles
-    public enum Style {
+    public enum Style: Equatable {
 
         /// Filled red
         case primary
@@ -26,6 +26,9 @@ public struct ARCButton: View {
 
         /// Disabled state
         case disabled
+
+        /// Custom state
+        case custom(backgroundColor: Color, borderColor: Color, textColor: Color)
     }
 
     @Environment(\.verticalSizeClass) var verticalSizeClass
@@ -100,6 +103,7 @@ private extension ARCButton.Style {
         case .secondary: return .clear
         case .underline: return .clear
         case .disabled: return .arcDarkGray
+        case .custom(let backgroundColor, _, _) : return backgroundColor
         }
     }
 
@@ -109,6 +113,7 @@ private extension ARCButton.Style {
         case .secondary: return .arcBlue
         case .underline: return .clear
         case .disabled: return .clear
+        case .custom(_, let borderColor, _) : return borderColor
         }
     }
 
@@ -118,6 +123,7 @@ private extension ARCButton.Style {
         case .secondary: return .arcBlue
         case .underline: return .arcBlue
         case .disabled: return .arcWhite
+        case .custom(_, _, let textColor) : return textColor
         }
     }
 }
@@ -140,6 +146,7 @@ struct ARCButton_Previews: PreviewProvider {
             ARCButton(title: "SECONDARY DISABLED", style: .secondary, onTap: {})
                 .disabled(true)
             ARCButton(title: "Underline", style: .underline, onTap: {})
+            ARCButton(title: "CUSTOM", style: .custom(backgroundColor: .arcBlue, borderColor: .clear, textColor: .arcWhite), onTap: {})
         }
         .padding()
 //        .previewInterfaceOrientation(.landscapeLeft)
