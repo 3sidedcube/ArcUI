@@ -9,8 +9,6 @@
 import SwiftUI
 
 struct ARCPageHeaderView<Content: View>: View {
-    @Environment(\.verticalSizeClass) var verticalSizeClass
-
     let backgroundColor: Color
     let content: () -> Content
     
