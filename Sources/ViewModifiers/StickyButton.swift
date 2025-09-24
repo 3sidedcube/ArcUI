@@ -18,6 +18,10 @@ public struct StickyButton: ViewModifier {
     public var isEnabled: Bool
     public var isLoading: Bool
     public var icon: Image?
+    public var minimumScaleFactor: CGFloat
+    public var lineLimit: Int?
+    public var layout: ARCButton.ButtonLayout
+    public var padding: EdgeInsets
     public var onTap: () -> Void
 
     /// Public memberwise initializer
@@ -27,6 +31,10 @@ public struct StickyButton: ViewModifier {
         isEnabled: Bool = true,
         isLoading: Bool = false,
         icon: Image? = nil,
+        minimumScaleFactor: CGFloat = 1,
+        lineLimit: Int? = nil,
+        layout: ARCButton.ButtonLayout = .default,
+        padding: EdgeInsets = .arcStickyContainer,
         onTap: @escaping () -> Void
     ) {
         self.title = title
@@ -35,16 +43,28 @@ public struct StickyButton: ViewModifier {
         self.isLoading = isLoading
         self.icon = icon
         self.onTap = onTap
+        self.minimumScaleFactor = minimumScaleFactor
+        self.lineLimit = lineLimit
+        self.layout = layout
+        self.padding = padding
     }
 
     public func body(content: Content) -> some View {
         content.modifier(
             StickyBottom {
-                ARCButton(title: title, style: style, icon: icon, onTap: onTap)
-                    .disabled(!isEnabled)
-                    .loading(isLoading)
-                    .frame(maxWidth: verticalSizeClass == .regular ? nil : .infinity)
-                    .padding(EdgeInsets.arcStickyContainer)
+                ARCButton(
+                    title: title,
+                    style: style,
+                    icon: icon,
+                    minimumScaleFactor: minimumScaleFactor,
+                    lineLimit: lineLimit,
+                    layout: layout,
+                    onTap: onTap
+                )
+                .disabled(!isEnabled)
+                .loading(isLoading)
+                .frame(maxWidth: verticalSizeClass == .regular ? nil : .infinity)
+                .padding(padding)
             }
         )
     }
