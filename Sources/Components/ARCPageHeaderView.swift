@@ -8,14 +8,26 @@
 
 import SwiftUI
 
-struct ARCPageHeaderView<Content: View>: View {
+public struct ARCPageHeaderView<Content: View>: View {
     let backgroundColor: Color
     let content: () -> Content
     
     let horizontalPadding: CGFloat
     let verticalPadding: CGFloat
+    
+    public init(
+        backgroundColor: Color,
+        content: @escaping () -> Content,
+        horizontalPadding: CGFloat,
+        verticalPadding: CGFloat
+    ) {
+        self.backgroundColor = backgroundColor
+        self.content = content
+        self.horizontalPadding = horizontalPadding
+        self.verticalPadding = verticalPadding
+    }
 
-    var body: some View {
+    public var body: some View {
         content()
             .frame(maxWidth: .infinity)
             .padding(.horizontal, horizontalPadding)
