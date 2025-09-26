@@ -14,7 +14,7 @@ public struct ARCPageHeaderView<Content: View>: View {
     
     let horizontalPadding: CGFloat
     let verticalPadding: CGFloat
-    
+
     public init(
         backgroundColor: Color,
         content: @escaping () -> Content,
