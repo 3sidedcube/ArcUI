@@ -22,6 +22,8 @@ public struct StickyButton: ViewModifier {
     public var lineLimit: Int?
     public var layout: ARCButton.ButtonLayout
     public var padding: EdgeInsets
+    public let cornerRadius: CGFloat
+    public let iconSize: CGFloat?
     public var onTap: () -> Void
 
     /// Public memberwise initializer
@@ -35,6 +37,8 @@ public struct StickyButton: ViewModifier {
         lineLimit: Int? = nil,
         layout: ARCButton.ButtonLayout = .default,
         padding: EdgeInsets = .arcStickyContainer,
+        cornerRadius: CGFloat = .arcCornerRadius,
+        iconSize: CGFloat? = nil,
         onTap: @escaping () -> Void
     ) {
         self.title = title
@@ -42,11 +46,13 @@ public struct StickyButton: ViewModifier {
         self.isEnabled = isEnabled
         self.isLoading = isLoading
         self.icon = icon
-        self.onTap = onTap
         self.minimumScaleFactor = minimumScaleFactor
         self.lineLimit = lineLimit
         self.layout = layout
         self.padding = padding
+        self.cornerRadius = cornerRadius
+        self.iconSize = iconSize
+        self.onTap = onTap
     }
 
     public func body(content: Content) -> some View {
@@ -59,6 +65,8 @@ public struct StickyButton: ViewModifier {
                     minimumScaleFactor: minimumScaleFactor,
                     lineLimit: lineLimit,
                     layout: layout,
+                    cornerRadius: cornerRadius,
+                    iconSize: iconSize,
                     onTap: onTap
                 )
                 .disabled(!isEnabled)
