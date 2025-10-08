@@ -135,6 +135,8 @@ public struct ARCButton: View {
     public var minimumScaleFactor: CGFloat
     public var lineLimit: Int?
     public var layout: ButtonLayout
+    public let cornerRadius: CGFloat
+    public let iconSize: CGFloat?
 
     /// Mapped `Style` based on states
     private var buttonStyle: Style {
@@ -148,15 +150,19 @@ public struct ARCButton: View {
         minimumScaleFactor: CGFloat = 1,
         lineLimit: Int? = nil,
         layout: ButtonLayout = .default,
+        cornerRadius: CGFloat = .arcCornerRadius,
+        iconSize: CGFloat? = nil,
         onTap: @escaping () -> Void
     ) {
         self.title = title
         self.style = style
         self.icon = icon
-        self.onTap = onTap
         self.minimumScaleFactor = minimumScaleFactor
         self.lineLimit = lineLimit
         self.layout = layout
+        self.cornerRadius = cornerRadius
+        self.iconSize = iconSize
+        self.onTap = onTap
     }
 
     public var body: some View {
@@ -167,7 +173,7 @@ public struct ARCButton: View {
                         icon
                             .resizable()
                             .scaledToFit()
-                            .frame(size: .ArcButton.iconSize)
+                            .frame(size: iconSize ?? .ArcButton.iconSize)
                             .padding(.trailing, .ArcButton.iconPadding)
                     }
                     Text(title)
@@ -186,9 +192,9 @@ public struct ARCButton: View {
             .frame(maxWidth: verticalSizeClass == .regular ? layout.portrait.maxWidth : layout.landscape.maxWidth)
             .padding(.ArcButton.padding)
             .background(buttonStyle.backgroundColor)
-            .cornerRadius(.arcCornerRadius)
+            .cornerRadius(cornerRadius)
             .overlay(
-                RoundedRectangle(cornerRadius: .arcCornerRadius)
+                RoundedRectangle(cornerRadius: cornerRadius)
                     .strokeBorder(buttonStyle.borderColor, lineWidth: .arcBorder)
             )
         }
