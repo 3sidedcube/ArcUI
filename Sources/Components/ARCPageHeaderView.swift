@@ -10,21 +10,20 @@ import SwiftUI
 
 public struct ARCPageHeaderView<Content: View>: View {
     let backgroundColor: Color
-    let content: () -> Content
-    
     let horizontalPadding: CGFloat
     let verticalPadding: CGFloat
+    let content: () -> Content
 
     public init(
         backgroundColor: Color,
-        content: @escaping () -> Content,
         horizontalPadding: CGFloat,
-        verticalPadding: CGFloat
+        verticalPadding: CGFloat,
+        content: @escaping () -> Content
     ) {
         self.backgroundColor = backgroundColor
-        self.content = content
         self.horizontalPadding = horizontalPadding
         self.verticalPadding = verticalPadding
+        self.content = content
     }
 
     public var body: some View {
